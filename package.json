@@ -1,0 +1,31 @@
+{
+  "name": "@deep-foundation/capacitor-device-integration-integration",
+  "keywords": [
+    "deep-package",
+    "deep-package-integration"
+  ],
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deep-foundation/capacitor-device-integration-integration"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "files": [
+    "/dist"
+    ],
+  "dependencies": {
+    "delay": "^5.0.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  },
+  "peerDependencies": {
+    "@deep-foundation/deeplinks": "^0.0.146",
+    "@capacitor/device": "^5.0.2"
+  }
+}
