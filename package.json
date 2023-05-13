@@ -26,6 +26,6 @@
   },
   "peerDependencies": {
     "@deep-foundation/deeplinks": "^0.0.146",
-    "@capacitor/device": "^5.0.2"
+    "@capacitor/device": "^4.1.0"
   }
 }
