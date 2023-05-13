@@ -1,5 +1,5 @@
 {
-  "name": "@deep-foundation/capacitor-device-integration-integration",
+  "name": "@deep-foundation/capacitor-device-integration",
   "keywords": [
     "deep-package",
     "deep-package-integration"
@@ -7,7 +7,7 @@
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/deep-foundation/capacitor-device-integration-integration"
+    "url": "https://github.com/deep-foundation/capacitor-device-integration"
   },
   "scripts": {
     "build": "tsc"
