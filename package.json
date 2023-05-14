@@ -1,14 +1,10 @@
 {
-  "name": "@deep-foundation/capacitor-device-integration",
+  "name": "@deep-foundation/capacitor-voice-recorder-integration",
   "keywords": [
     "deep-package",
     "deep-package-integration"
   ],
-  "version": "0.2.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/deep-foundation/capacitor-device-integration"
-  },
+  "version": "0.0.1",
   "scripts": {
     "build": "tsc"
   },
@@ -18,14 +14,14 @@
     "/dist"
   ],
   "dependencies": {
-    "delay": "^5.0.0",
-    "lodash": "^4.17.21"
+    "@deep-foundation/deeplinks": "0.0.147",
+    "capacitor-voice-recorder": "^5.0.0"
   },
   "devDependencies": {
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
-    "@deep-foundation/deeplinks": "^0.0.146",
-    "@capacitor/device": "^4.1.0"
+    "capacitor-voice-recorder": "^4.0.2",
+    "@deep-foundation/deeplinks": "^0.0.146"
   }
 }

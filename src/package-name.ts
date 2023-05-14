@@ -1,1 +1,1 @@
-export const DEVICE_PACKAGE_NAME=`@deep-foundation/device`
+export const CAPACITOR_VOICE_RECORDER_PACKAGE_NAME = "@deep-foundation/capacitor-voice-recorder"
