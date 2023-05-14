@@ -1,4 +1,4 @@
-# [`@deep-foundation/capacitor-voice-recorder-integration`](githublink)
+# [`@deep-foundation/capacitor-voice-recorder-integration`](https://github.com/deep-foundation/capacitor-voice-recorder-integration)
 
 # Goal
 
