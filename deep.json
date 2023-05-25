@@ -1,0 +1,188 @@
+{
+  "package": {
+    "name": "@deep-foundation/capacitor-voice-recorder",
+    "version": "0.0.3"
+  },
+  "data": [
+    {
+      "package": {
+        "dependencyId": 0,
+        "containValue": "SyncTextFile"
+      },
+      "id": 1
+    },
+    {
+      "package": {
+        "dependencyId": 1,
+        "containValue": "TSX"
+      },
+      "id": 2
+    },
+    {
+      "package": {
+        "dependencyId": 0,
+        "containValue": "Handler"
+      },
+      "id": 3
+    },
+    {
+      "package": {
+        "dependencyId": 0,
+        "containValue": "clientSupportsJs"
+      },
+      "id": 4
+    },
+    {
+      "package": {
+        "dependencyId": 0,
+        "containValue": "HandleClient"
+      },
+      "id": 5
+    },
+    {
+      "package": {
+        "dependencyId": 2,
+        "containValue": "Sound"
+      },
+      "id": 6
+    },
+    {
+      "package": {
+        "dependencyId": 0,
+        "containValue": "Type"
+      },
+      "id": 7
+    },
+    {
+      "package": {
+        "dependencyId": 0,
+        "containValue": "Any"
+      },
+      "id": 8
+    },
+    {
+      "package": {
+        "dependencyId": 2,
+        "containValue": "Codec"
+      },
+      "id": 9
+    },
+    {
+      "package": {
+        "dependencyId": 3,
+        "containValue": "Device"
+      },
+      "id": 10
+    },
+    {
+      "package": {
+        "dependencyId": 0,
+        "containValue": "GeneratedFrom"
+      },
+      "id": 11
+    },
+    {
+      "id": "125125251",
+      "type": 3,
+      "from": 4,
+      "to": "2362532523"
+    },
+    {
+      "id": "2151251251",
+      "type": 5,
+      "from": 6,
+      "to": "125125251"
+    },
+    {
+      "id": "2362532523",
+      "type": 1,
+      "value": {
+        "value": "var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {\n    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }\n    return new (P || (P = Promise))(function (resolve, reject) {\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\n        function rejected(value) { try { step(generator[\"throw\"](value)); } catch (e) { reject(e); } }\n        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\n    });\n};\n({ deep, require }) => __awaiter(void 0, void 0, void 0, function* () {\n    const React = require('react');\n    const mimetypeTypelinkId = yield deep.id(\"@deep-foundation/sound\", \"MIME/type\");\n    const containTypeLinkId = yield deep.id(\"@deep-foundation/core\", \"Contain\");\n    return ({ fillSize, style, link }) => {\n        var _a, _b;\n        const { data, loading, error } = deep.useDeepSubscription({\n            type_id: mimetypeTypelinkId,\n            in: {\n                type_id: containTypeLinkId,\n                from_id: link.id\n            }\n        });\n        const sound = link.value.value;\n        const mimetype = (_b = (_a = data === null || data === void 0 ? void 0 : data[0]) === null || _a === void 0 ? void 0 : _a.value) === null || _b === void 0 ? void 0 : _b.value;\n        return React.createElement(\"audio\", { controls: true, src: `data:${mimetype};base64,${sound}` }, \"Your browser does not support the audio element.\");\n    };\n});\n//# sourceMappingURL=module.js.map"
+      }
+    },
+    {
+      "id": "83185195713",
+      "type": 2,
+      "value": {
+        "value": "async ({ deep, require }) => {\n  const React = require('react');\n  const mimetypeTypelinkId = await deep.id(\"@deep-foundation/sound\", \"MIME/type\");\n  const containTypeLinkId = await deep.id(\"@deep-foundation/core\", \"Contain\");\n\n  return ({ fillSize, style, link }) => {\n\n    const { data, loading, error } = deep.useDeepSubscription({\n      type_id: mimetypeTypelinkId,\n      in: {\n        type_id: containTypeLinkId,\n        from_id: link.id\n      }\n    });\n\n    const sound = link.value.value;\n    const mimetype = data?.[0]?.value?.value;\n    \n    return <audio controls src={`data:${mimetype};base64,${sound}`}>Your browser does not support the audio element.</audio>;\n  }\n} "
+      }
+    },
+    {
+      "id": "AudioRecords",
+      "type": 7
+    },
+    {
+      "id": "Record",
+      "type": 7,
+      "from": "AudioRecords",
+      "to": 8
+    },
+    {
+      "id": "EndTime",
+      "type": 7,
+      "from": "Record",
+      "to": 8
+    },
+    {
+      "id": "StartTime",
+      "type": 7,
+      "from": "Record",
+      "to": 8
+    },
+    {
+      "id": "Duration",
+      "type": 7,
+      "from": "Record",
+      "to": 8
+    },
+    {
+      "id": "DeviceSupport",
+      "type": 7,
+      "from": "AudioRecords",
+      "to": 8
+    },
+    {
+      "id": "Permissions",
+      "type": 7,
+      "from": "AudioRecords",
+      "to": 8
+    },
+    {
+      "id": "SoundDependency",
+      "type": 7,
+      "from": 9,
+      "to": 9
+    },
+    {
+      "id": "DeviceDependency",
+      "type": 7,
+      "from": 10,
+      "to": 10
+    },
+    {
+      "id": "32423423423",
+      "type": 11,
+      "from": "2362532523",
+      "to": "83185195713"
+    }
+  ],
+  "errors": [],
+  "dependencies": [
+    {
+      "name": "@deep-foundation/core",
+      "version": "0.0.2"
+    },
+    {
+      "name": "@deep-foundation/tsx",
+      "version": "0.0.3"
+    },
+    {
+      "name": "@deep-foundation/sound",
+      "version": "0.0.3"
+    },
+    {
+      "name": "@deep-foundation/device",
+      "version": "1.0.1"
+    }
+  ]
+}
