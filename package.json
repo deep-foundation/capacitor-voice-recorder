@@ -10,7 +10,7 @@
     "url": "https://github.com/deep-foundation/capacitor-voice-recorder-integration"
 },
   "scripts": {
-    "npm-pull": "(git diff --quiet || (echo 'You have unstaged changes. Stash them (git stash) or commit them (git commit)'; exit 1)) && npm install ${npm_package_name}@latest --no-save && mv --force node_modules/${npm_package_name}/* ./",
+    "npm-pull": "(git diff --quiet || (echo 'You have unstaged changes. Stash them (git stash) or commit them (git commit)'; exit 1)) && npm install ${@deep-foundation/capacitor-voice-recorder}@latest --no-save && mv --force node_modules/${@deep-foundation/capacitor-voice-recorder}/* ./",
     "build": "tsc"
   },
   "main": "dist/main.js",
