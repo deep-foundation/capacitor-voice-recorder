@@ -7,7 +7,7 @@
   "version": "0.0.4",
   "repository": {
     "type": "git",
-    "url": "https://github.com/deep-foundation/capacitor-voice-recorder-integration"
+    "url": "https://github.com/deep-foundation/capacitor-voice-recorder"
   },
   "scripts": {
     "npm-pull": "export TEMP_DIR=$(mktemp -d); (cd $TEMP_DIR && npm install ${npm_package_name}@latest --no-save) && mv --force $TEMP_DIR/node_modules/${npm_package_name}/* ./",
@@ -17,7 +17,8 @@
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "files": [
-    "/dist"
+    "/dist",
+    "./deep.json"
   ],
   "dependencies": {
     "@deep-foundation/deeplinks": "0.0.147",
