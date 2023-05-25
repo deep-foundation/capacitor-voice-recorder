@@ -4,14 +4,15 @@
     "deep-package",
     "deep-package-integration"
   ],
-  "version": "0.0.3",
+  "version": "0.0.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/deep-foundation/capacitor-voice-recorder-integration"
-},
+  },
   "scripts": {
     "npm-pull": "export TEMP_DIR=$(mktemp -d); (cd $TEMP_DIR && npm install ${npm_package_name}@latest --no-save) && mv --force $TEMP_DIR/node_modules/${npm_package_name}/* ./",
-    "build": "tsc"
+    "build": "tsc",
+    "publish": "npx ts-node ./automation/publish.ts"
   },
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
@@ -20,10 +21,12 @@
   ],
   "dependencies": {
     "@deep-foundation/deeplinks": "0.0.147",
+    "@simplyhexagonal/exec": "^2.0.2",
     "capacitor-voice-recorder": "^5.0.0"
   },
   "devDependencies": {
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "commander": "^10.0.1"
   },
   "peerDependencies": {
     "capacitor-voice-recorder": "^4.0.2",
