@@ -4,7 +4,7 @@
     "deep-package",
     "deep-package-integration"
   ],
-  "version": "0.0.8",
+  "version": "0.0.9",
   "repository": {
     "type": "git",
     "url": "https://github.com/deep-foundation/capacitor-voice-recorder"
@@ -20,12 +20,9 @@
     "/dist",
     "./deep.json"
   ],
-  "dependencies": {
-    "@deep-foundation/deeplinks": "0.0.147",
-    "@simplyhexagonal/exec": "^2.0.2",
-    "capacitor-voice-recorder": "^5.0.0"
-  },
   "devDependencies": {
+    "capacitor-voice-recorder": "^4.0.2",
+    "@deep-foundation/deeplinks": "^0.0.146",
     "typescript": "^5.0.4",
     "commander": "^10.0.1"
   },
