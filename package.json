@@ -5,7 +5,7 @@
     "deep-package",
     "deep-package-integration"
   ],
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A deep package that is based on capacitor-voice-recorder package",
   "repository": {
     "type": "git",
