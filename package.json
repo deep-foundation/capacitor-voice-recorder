@@ -23,11 +23,6 @@
     "./deep.json"
   ],
   "license": "Unlicense",
-  "dependencies": {
-    "@deep-foundation/deeplinks": "0.0.147",
-    "@simplyhexagonal/exec": "^2.0.2",
-    "capacitor-voice-recorder": "^5.0.0"
-  },
   "peerDependencies": {
     "capacitor-voice-recorder": "^4.0.2",
     "@chakra-ui/react": "^2.5.5",
