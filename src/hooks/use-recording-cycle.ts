@@ -1,23 +1,23 @@
 import { useState, useEffect } from 'react';
 import { VoiceRecorder } from "capacitor-voice-recorder";
-import uploadRecords, { IRecord } from './upload-records';
+import { uploadRecords, IRecord } from '../upload-records';
 import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
 
 export const delay = (time: number) => new Promise<void>(res => setTimeout(() => res(), time));
 
-interface IUseRecordingCycle {
+export interface IUseRecordingCycle {
   deep: DeepClient;
-  containerLinkId:number,
+  containerLinkId: number,
   recording: boolean;
   duration: number;
 }
 
-export default function useRecordingCycle({deep, recording, containerLinkId, duration}:IUseRecordingCycle):IRecord[] {
+export function useRecordingCycle({ deep, recording, containerLinkId, duration }: IUseRecordingCycle): IRecord[] {
   const [records, setRecords] = useState<IRecord[]>([]);
 
   useEffect(() => {
     const useRecords = async () => {
-      await uploadRecords({deep, containerLinkId, records});
+      await uploadRecords({ deep, containerLinkId, records });
       setRecords([]);
     }
     if (records.length > 0) useRecords();
