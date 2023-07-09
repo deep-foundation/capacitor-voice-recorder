@@ -1,5 +1,6 @@
 import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
 import { PACKAGE_NAME } from './package-name';
+import { LinkName } from "./link-name";
 
 /**
  *  Creates a new container for audio records.
@@ -11,7 +12,7 @@ export async function createContainer(deep: DeepClient): Promise<number> {
   // Get the link IDs for nessesary types.
 
   const containTypeLinkId = await deep.id("@deep-foundation/core", "Contain");
-  const audioRecordsTypeLinkId = await deep.id(PACKAGE_NAME, "AudioRecords");
+  const audioRecordsTypeLinkId = await deep.id(PACKAGE_NAME, LinkName[LinkName.AudioRecords]);
 
   // Check if a container link already exists for "AudioRecords" type.
 

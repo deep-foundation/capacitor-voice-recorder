@@ -1,6 +1,7 @@
 import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
 import { PACKAGE_NAME } from './package-name';
 import { ISound } from "./stop-recording";
+import { LinkName } from "./link-name";
 
 export interface IRecord { // Represents a record containing sound and its details.
   sound: ISound; // The recorded sound.
@@ -21,13 +22,13 @@ export async function uploadRecords({deep, containerLinkId, records}:IUploadReco
   // Get the link IDs for nessesary types.
 
   const containTypeLinkId = await deep.id("@deep-foundation/core", "Contain");
-  const recordTypeLinkId = await deep.id(PACKAGE_NAME, "Record");
-  const durationTypeLinkId = await deep.id(PACKAGE_NAME, "Duration");
-  const startTimeTypeLinkId = await deep.id(PACKAGE_NAME, "StartTime");
-  const endTimeTypeLinkId = await deep.id(PACKAGE_NAME, "EndTime");
-  const mimetypeTypeLinkId = await deep.id("@deep-foundation/sound", "MIME/type");
-  const formatTypeLinkId = await deep.id("@deep-foundation/sound", "Format");
-  const soundTypeLinkId = await deep.id("@deep-foundation/sound", "Sound");
+  const recordTypeLinkId = await deep.id(PACKAGE_NAME, LinkName[LinkName.Record]);
+  const durationTypeLinkId = await deep.id(PACKAGE_NAME, LinkName[LinkName.Duration]);
+  const startTimeTypeLinkId = await deep.id(PACKAGE_NAME, LinkName[LinkName.StartTime]);
+  const endTimeTypeLinkId = await deep.id(PACKAGE_NAME, LinkName[LinkName.EndTime]);
+  const mimetypeTypeLinkId = await deep.id("@deep-foundation/sound", LinkName[LinkName["MIME/type"]]);
+  const formatTypeLinkId = await deep.id("@deep-foundation/sound", LinkName[LinkName.Format]);
+  const soundTypeLinkId = await deep.id("@deep-foundation/sound", LinkName[LinkName.Sound]);
 
   // Map the records to the links structure defined in package type links structure and insert into the database.
 

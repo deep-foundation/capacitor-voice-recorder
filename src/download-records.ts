@@ -1,6 +1,7 @@
 import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
 import { Link } from "@deep-foundation/deeplinks/imports/minilinks";
 import { PACKAGE_NAME } from './package-name';
+import { LinkName } from "./link-name";
 
 export interface IRecord { // Represents a downloaded record.
   sound: string,
@@ -16,12 +17,12 @@ export interface IRecord { // Represents a downloaded record.
  */
 
 export async function downloadRecords(deep: DeepClient): Promise<IRecord[]> {
-  const recordTypelinkId = await deep.id(PACKAGE_NAME, "Record"); // Retrieve the link IDs for the nessesary types.
-  const mimetypeTypeLinkId = await deep.id("@deep-foundation/sound", "MIME/type");
-  const soundTypeLinkId = await deep.id("@deep-foundation/sound", "Sound");
-  const startTimeTypeLinkId = await deep.id("@deep-foundation/sound", "StartTime");
-  const endTimeTypeLinkId = await deep.id("@deep-foundation/sound", "EndTime");
-  const durationTypeLinkId = await deep.id("@deep-foundation/sound", "Duration");
+  const recordTypelinkId = await deep.id(PACKAGE_NAME, LinkName[LinkName.Record]); // Retrieve the link IDs for the nessesary types.
+  const mimetypeTypeLinkId = await deep.id("@deep-foundation/sound", LinkName[LinkName["MIME/type"]]);
+  const soundTypeLinkId = await deep.id("@deep-foundation/sound", LinkName[LinkName.Sound]);
+  const startTimeTypeLinkId = await deep.id("@deep-foundation/sound", LinkName[LinkName.StartTime]);
+  const endTimeTypeLinkId = await deep.id("@deep-foundation/sound", LinkName[LinkName.EndTime]);
+  const durationTypeLinkId = await deep.id("@deep-foundation/sound", LinkName[LinkName.Duration]);
 
   const { data: recordLinks } = await deep.select({
     type_id: recordTypelinkId

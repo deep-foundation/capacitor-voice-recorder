@@ -8,12 +8,9 @@ Provides links&functions based on [`capacitor-voice-recorder`](https://www.npmjs
 
 [**List of links**](https://deep-foundation.github.io/capacitor-voice-recorder/enums/LinkName.html)
 
-## Device Object Value
+## AudioRecords Container link
 
-The [`Device`] link can have object value.  
-No one field is required. You can add any fields as you want.  Only the fields that are supported by this package will be represented as links   
-[Supported fields can be found in the `DeviceInfo` interface](https://deep-foundation.github.io/capacitor-device/types/DeviceInfo.html)  
-[Example of Device Object Value](https://deep-foundation.github.io/capacitor-device/types/DeviceInfo.html#md:device-info-example)
+The [`AudioRecords`] link serves as a container for link structures representing records inside deep.  
 
 ## Prerequisitions
 - Install this package in your deep by using npm-packager
@@ -36,20 +33,20 @@ You can also create it manually inside your deepcase client. Open Insert menu, s
 
 3. Recording Audio:
 
+Start recording audio and return the start time as a string.
 ```js
-const startTime = await Recorder.startRecording(); // Start recording audio and return the start time as a string.
+const startTime = await Recorder.startRecording(); 
 ```
-
+Pause the ongoing recording and return the playback status.
 ```js 
-const ispaused = await Recorder.pauseRecording();; // Pause the ongoing recording and return the playback status.
+const ispaused = await Recorder.pauseRecording();; 
 ```
-
+Resume the ongoing recording and return the playback status.
 ```js
-const isresumed = await Recorder.resumeRecording(); // Resume the ongoing recording and return the playback status.
+const isresumed = await Recorder.resumeRecording(); 
 ```
-
+Stop the ongoing recording, upload the recorded sound, and return the recorded sound with info.
 ```js
-// Stop the ongoing recording, upload the recorded sound, and return the recorded sound with info.
 const { recordDataBase64, msDuration, mimeType } = await Recorder.stopRecording({
   deep, // The DeepClient object
   containerLinkId, // The ID of the container link
@@ -59,8 +56,9 @@ const { recordDataBase64, msDuration, mimeType } = await Recorder.stopRecording(
 
 4. Download records from deep database:
 
+Download all existing records made by this recorder as array of IRecord records.
 ```js
-const records = downloadRecords(deep); // Download all existing records made by this recorder as IRecord[]
+const records = downloadRecords(deep); 
 
 export interface IRecord { 
   sound: string,
@@ -87,21 +85,20 @@ You will see basic ui with all package functionality.
 
 3. Custom hooks can be used anywhere in your deep app:
 
+useContainer hook to get existing or create a new container link ID.
 ```js
-const containerLinkId = useContainer(deep); // Custom hook to get existing or create a new container link ID.
+const containerLinkId = useContainer(deep);
 ```
-
+useRecordingStatus hook to get audio recording status every second (by default).
 ```js
-const audioRecordingStatus = useRecordingStatus({}); // Custom hook to get audio recording status
+const audioRecordingStatus = useRecordingStatus({intervalInMs?}); 
 ```
-
+useRecordingCycle hook to fire the recording cycle.
+Recording cycle records audiochunks of a given duration and uploads them as a links structure inside deep database.
 ```js
-const sounds = useRecordingCycle({ deep, recording, containerLinkId, duration: 5000 }); // Custom hook to fire the recording cycle
-// recording cycle records audiochunks of a given duration and uploads them as a links structure inside deep database
+const sounds = useRecordingCycle({ deep, recording, containerLinkId, duration: 5000 }); 
 ```
 
 ## Contribution
 
 Feel free to contribute. Please fork the repository and submit a pull request for any bugs, improvements, or features.
-
-[`Recorder`]: https://deep-foundation.github.io/capacitor-device/enums/LinkName.html#Device
