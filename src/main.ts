@@ -4,7 +4,7 @@ export { startRecording } from './strart-recording';
 export { pauseRecording } from "./pause-recording";
 export { resumeRecording } from "./resume-recording";
 export { stopRecording, type ISound, type IStopRecordingOptions } from "./stop-recording";
-export { Recorder } from "./components/recorder";
+export { VoiceRecorder } from "./components/voice-recorder";
 export { downloadRecords } from "./download-records";
 export { useContainer } from "./hooks/use-container";
 export { useRecordingCycle, type IUseRecordingCycle } from "./hooks/use-recording-cycle";
