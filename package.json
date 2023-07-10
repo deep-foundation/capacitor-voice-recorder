@@ -5,7 +5,7 @@
     "deep-package",
     "deep-package-integration"
   ],
-  "version": "0.1.6",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/deep-foundation/capacitor-voice-recorder"

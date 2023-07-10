@@ -58,7 +58,7 @@ const { recordDataBase64, msDuration, mimeType } = await Recorder.stopRecording(
 
 Download all existing records made by this recorder as array of IRecord records.
 ```js
-const records = downloadRecords(deep); 
+const records = Recorder.downloadRecords(deep); 
 
 export interface IRecord { 
   sound: string,
