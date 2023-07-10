@@ -8,7 +8,7 @@ Provides links&functions based on [`capacitor-voice-recorder`](https://www.npmjs
 
 [**List of links**](https://deep-foundation.github.io/capacitor-voice-recorder/enums/LinkName.html)
 
-## AudioRecords Container link
+## AudioRecords
 
 The [`AudioRecords`] link serves as a container for link structures representing records inside deep.  
 
@@ -102,3 +102,5 @@ const sounds = useRecordingCycle({ deep, recording, containerLinkId, duration: 5
 ## Contribution
 
 Feel free to contribute. Please fork the repository and submit a pull request for any bugs, improvements, or features.
+
+[`AudioRecords`]: https://deep-foundation.github.io/capacitor-device/enums/LinkName.html#AudioRecords
