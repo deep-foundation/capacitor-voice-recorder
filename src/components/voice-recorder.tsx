@@ -1,30 +1,24 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
 import { Button, Card, CardBody, CardHeader, Heading, Stack, Text } from '@chakra-ui/react';
-import { VoiceRecorder as CapacitorVoiceRecorder } from 'capacitor-voice-recorder';
 import { useRecordingStatus } from '../hooks/use-recording-status';
 import { useRecordingCycle } from '../hooks/use-recording-cycle';
 import { useContainer } from '../hooks/use-container';
 import { startRecording } from '../strart-recording';
 import { stopRecording } from '../stop-recording';
 import { downloadRecords } from '../download-records';
+import { usePermissions } from '../hooks/use-permissions';
 
-// React component for voice-recorder
-
+/**
+ * React component for using the voice recorder.
+ * @param {DeepClient} deep - The DeepClient object instance.
+ */
 export function VoiceRecorder({ deep }: { deep: DeepClient }) {
   const [recording, setRecording] = useState(false); // State variable to track recording status
   const [records, setRecords] = useState<any[]>([]); // State variable to store downloaded audio files
 
-  const [arePermissionsGranted, setArePermissionsGranted] = useState<boolean | undefined>(undefined); // State variable to track audio recording permissions
-  const [canDeviceRecord, setCanDeviceRecord] = useState<boolean | undefined>(undefined); // State variable to check if device can record
 
-  useEffect(() => {
-    new Promise(async () => {
-      const { value: canDeviceRecord } = await CapacitorVoiceRecorder.canDeviceVoiceRecord(); // Check if device can record audio
-      setCanDeviceRecord(canDeviceRecord);
-    });
-  }, []);
-
+  const { recorderPermissions, deviceSupport, getPermissions, getDeviceSupport } = usePermissions(); // Custom hook to get permissions
   const containerLinkId = useContainer(deep); // Custom hook to get container link ID
   const audioRecordingStatus = useRecordingStatus({}); // Custom hook to get audio recording status
   const sounds = useRecordingCycle({ deep, recording, containerLinkId, duration: 5000 }); // Custom hook to fire recording cycle
@@ -40,7 +34,7 @@ export function VoiceRecorder({ deep }: { deep: DeepClient }) {
           </Heading>
         </CardHeader>
         <CardBody>
-          <Text>{`Device is ${!canDeviceRecord ? 'not' : ''} able to record.`}</Text>
+          <Text>{`Device is ${!deviceSupport ? 'not' : ''} able to record.`}</Text>
         </CardBody>
       </Card>
       <Card>
@@ -50,11 +44,8 @@ export function VoiceRecorder({ deep }: { deep: DeepClient }) {
           </Heading>
         </CardHeader>
         <CardBody>
-          <Text>{`Permissions are ${!arePermissionsGranted ? 'not' : ''} granted.`}</Text>
-          <Button onClick={async () => {
-            const { value: arePermissionsGranted } = await CapacitorVoiceRecorder.requestAudioRecordingPermission(); // Request audio recording permission
-            setArePermissionsGranted(arePermissionsGranted);
-          }}>
+          <Text>{`Permissions are ${!recorderPermissions ? 'not' : ''} granted.`}</Text>
+          <Button onClick={async () => await getPermissions()}>
             Request permissions
           </Button>
         </CardBody>

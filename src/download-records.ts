@@ -17,12 +17,13 @@ export interface IRecord { // Represents a downloaded record.
  */
 
 export async function downloadRecords(deep: DeepClient): Promise<IRecord[]> {
-  const recordTypelinkId = await deep.id(PACKAGE_NAME, LinkName[LinkName.Record]); // Retrieve the link IDs for the nessesary types.
+  // Retrieve the link IDs for the nessesary types.
+  const recordTypelinkId = await deep.id(PACKAGE_NAME, LinkName[LinkName.Record]);
+  const startTimeTypeLinkId = await deep.id(PACKAGE_NAME, LinkName[LinkName.StartTime]);
+  const endTimeTypeLinkId = await deep.id(PACKAGE_NAME, LinkName[LinkName.EndTime]);
+  const durationTypeLinkId = await deep.id(PACKAGE_NAME, LinkName[LinkName.Duration]);
   const mimetypeTypeLinkId = await deep.id("@deep-foundation/sound", LinkName[LinkName["MIME/type"]]);
   const soundTypeLinkId = await deep.id("@deep-foundation/sound", LinkName[LinkName.Sound]);
-  const startTimeTypeLinkId = await deep.id("@deep-foundation/sound", LinkName[LinkName.StartTime]);
-  const endTimeTypeLinkId = await deep.id("@deep-foundation/sound", LinkName[LinkName.EndTime]);
-  const durationTypeLinkId = await deep.id("@deep-foundation/sound", LinkName[LinkName.Duration]);
 
   const { data: recordLinks } = await deep.select({
     type_id: recordTypelinkId

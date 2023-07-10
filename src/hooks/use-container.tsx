@@ -11,7 +11,7 @@ export const useContainer = (deep: DeepClient) => {
   const [containerLinkId, setContainerLinkId] = useLocalStore<number | undefined>(
     'containerLinkId',
     undefined
-  ); // custom LocalStore state to store the recorded sounds.
+  ); // custom LocalStore state to store the container link id.
 
   useEffect(() => {
     if (!containerLinkId) {
