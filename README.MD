@@ -56,17 +56,9 @@ const { recordDataBase64, msDuration, mimeType } = await Recorder.stopRecording(
 
 4. Download records from deep database:
 
-Download all existing records made by this recorder as array of IRecord records.
+Download all existing records made by this recorder as array of [`IRecord`] records.
 ```js
 const records = Recorder.downloadRecords(deep); 
-
-export interface IRecord { 
-  sound: string,
-  mimetype: string,
-  startTime: string,
-  endTime: string,
-  duration: number
-}
 ```
 ## React Usage
 1. Import VoiceRecorder react component or hooks:
@@ -103,4 +95,5 @@ const sounds = useRecordingCycle({ deep, recording, containerLinkId, duration: 5
 
 Feel free to contribute. Please fork the repository and submit a pull request for any bugs, improvements, or features.
 
-[`AudioRecords`]: https://deep-foundation.github.io/capacitor-device/enums/LinkName.html#AudioRecords
+[`AudioRecords`]: https://deep-foundation.github.io/capacitor-voice-recorder/enums/LinkName.html#AudioRecords
+[`IRecord`] : https://deep-foundation.github.io/capacitor-voice-recorder/interfaces/IRecord.html

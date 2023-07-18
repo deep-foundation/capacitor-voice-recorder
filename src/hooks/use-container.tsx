@@ -9,7 +9,7 @@ import { createContainer } from '../create-container';
  
 export const useContainer = (deep: DeepClient) => {
   const [containerLinkId, setContainerLinkId] = useLocalStore<number | undefined>(
-    'containerLinkId',
+    'audioRecordsContainerLinkId',
     undefined
   ); // custom LocalStore state to store the container link id.
 
