@@ -19,6 +19,9 @@ import { resumeRecording } from "./resume-recording";
 import { stopRecording } from "./stop-recording";
 import { uploadRecords } from "./upload-records";
 
+export {Package,PackageOptions} from './package'
+
+
 const Recorder = {
     startRecording,
     pauseRecording,
