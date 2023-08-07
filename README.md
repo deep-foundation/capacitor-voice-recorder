@@ -12,9 +12,22 @@ Provides links&functions based on [`capacitor-voice-recorder`](https://www.npmjs
 
 The [`AudioRecords`] link serves as a container for link structures representing records inside deep.  
 
+## Sound
+
+The [`Sound`] link represents recorded data as base64 string.
+All links of type Sound can be played with left click.
+<img src="https://github.com/deep-foundation/capacitor-voice-recorder/assets/44348954/80bacb4c-4533-4c63-afbc-565602f1ad9a" alt= “” width="600" height="400">
+capacitor-voice-recorder provides only MIME/type as audio prop and it gets stored as link.
+
+All new links of type Sound will be parced with async handler inside Sound package using music-metadata npm library. 
+Useful data will be stored as a prop links inside Sound link.
+Make sure to give permissions to Sound package with Join link.
+
 ## Prerequisitions
 - Install this package in your deep by using npm-packager
-- Provide permissions to this package
+- Provide permissions to this package and its dependencies.
+
+<img src="https://github.com/deep-foundation/capacitor-voice-recorder/assets/44348954/e738da95-170e-4e8a-b9a5-bc8f1daf460c" alt= “” width="600" height="400">
 
 ## Usage
 1. Import the library into your TypeScript project:
@@ -96,4 +109,5 @@ const sounds = useRecordingCycle({ deep, recording, containerLinkId, duration: 5
 Feel free to contribute. Please fork the repository and submit a pull request for any bugs, improvements, or features.
 
 [`AudioRecords`]: https://deep-foundation.github.io/capacitor-voice-recorder/enums/LinkName.html#AudioRecords
+[`Sound`]: https://deep-foundation.github.io/capacitor-voice-recorder/enums/LinkName.html#Sound
 [`IRecord`] : https://deep-foundation.github.io/capacitor-voice-recorder/interfaces/IRecord.html
