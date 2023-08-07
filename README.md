@@ -16,7 +16,9 @@ The [`AudioRecords`] link serves as a container for link structures representing
 
 The [`Sound`] link represents recorded data as base64 string.
 All links of type Sound can be played with left click.
+
 <img src="https://github.com/deep-foundation/capacitor-voice-recorder/assets/44348954/80bacb4c-4533-4c63-afbc-565602f1ad9a" alt= “” width="600" height="400">
+
 capacitor-voice-recorder provides only MIME/type as audio prop and it gets stored as link.
 
 All new links of type Sound will be parced with async handler inside Sound package using music-metadata npm library. 
