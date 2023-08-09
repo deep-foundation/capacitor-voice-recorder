@@ -1,25 +1,25 @@
-export { PACKAGE_NAME } from "./package-name";
+export { PACKAGE_NAME } from "./package-name.js";
 export { createContainer } from './create-container';
 export { startRecording } from './strart-recording';
-export { pauseRecording } from "./pause-recording";
-export { resumeRecording } from "./resume-recording";
-export { stopRecording, type ISound, type IStopRecordingOptions } from "./stop-recording";
-export { VoiceRecorder } from "./components/voice-recorder";
-export { downloadRecords } from "./download-records";
-export { useContainer } from "./hooks/use-container";
-export { usePermissions } from "./hooks/use-permissions";
-export { useRecordingCycle, type IUseRecordingCycle } from "./hooks/use-recording-cycle";
-export { useRecordingStatus } from "./hooks/use-recording-status";
-export { uploadRecords, type IRecord, type IUploadRecordsOptions } from "./upload-records";
+export { pauseRecording } from "./pause-recording.js";
+export { resumeRecording } from "./resume-recording.js";
+export { stopRecording, type ISound, type IStopRecordingOptions } from "./stop-recording.js";
+export { VoiceRecorder } from "./components/voice-recorder.js";
+export { downloadRecords } from "./download-records.js";
+export { useContainer } from "./hooks/use-container.js";
+export { usePermissions } from "./hooks/use-permissions.js";
+export { useRecordingCycle, type IUseRecordingCycle } from "./hooks/use-recording-cycle.js";
+export { useRecordingStatus } from "./hooks/use-recording-status.js";
+export { uploadRecords, type IRecord, type IUploadRecordsOptions } from "./upload-records.js";
 export { LinkName } from './link-name';
 
 import { startRecording } from './strart-recording';
-import { pauseRecording } from "./pause-recording";
-import { resumeRecording } from "./resume-recording";
-import { stopRecording } from "./stop-recording";
-import { uploadRecords } from "./upload-records";
+import { pauseRecording } from "./pause-recording.js";
+import { resumeRecording } from "./resume-recording.js";
+import { stopRecording } from "./stop-recording.js";
+import { uploadRecords } from "./upload-records.js";
 
-export {Package,PackageOptions} from './package'
+export {Package,PackageOptions} from './package.js'
 
 
 const Recorder = {
