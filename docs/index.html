@@ -19,10 +19,20 @@
 <p><a href="https://deep-foundation.github.io/capacitor-voice-recorder/"><strong>Documentation</strong></a> </p>
 <p><a href="https://deep-foundation.github.io/capacitor-voice-recorder/enums/LinkName.html"><strong>List of links</strong></a></p>
 <a id="md:audiorecords" class="tsd-anchor"></a><h2><a href="#md:audiorecords">AudioRecords</a></h2><p>The <a href="https://deep-foundation.github.io/capacitor-voice-recorder/enums/LinkName.html#AudioRecords"><code>AudioRecords</code></a> link serves as a container for link structures representing records inside deep.  </p>
+<a id="md:sound" class="tsd-anchor"></a><h2><a href="#md:sound">Sound</a></h2><p>The <a href="https://deep-foundation.github.io/capacitor-voice-recorder/enums/LinkName.html#Sound"><code>Sound</code></a> link represents recorded data as base64 string.
+All links of type Sound can be played with left click.</p>
+<img src="https://github.com/deep-foundation/capacitor-voice-recorder/assets/44348954/80bacb4c-4533-4c63-afbc-565602f1ad9a" alt= “” width="600" height="400">
+
+<p>capacitor-voice-recorder provides only MIME/type as audio prop and it gets stored as link.</p>
+<p>All new links of type Sound will be parced with async handler inside Sound package using music-metadata npm library. 
+Useful data will be stored as a prop links inside Sound link.
+Make sure to give permissions to Sound package with Join link.</p>
 <a id="md:prerequisitions" class="tsd-anchor"></a><h2><a href="#md:prerequisitions">Prerequisitions</a></h2><ul>
 <li>Install this package in your deep by using npm-packager</li>
-<li>Provide permissions to this package</li>
+<li>Provide permissions to this package and its dependencies.</li>
 </ul>
+<img src="https://github.com/deep-foundation/capacitor-voice-recorder/assets/44348954/e738da95-170e-4e8a-b9a5-bc8f1daf460c" alt= “” width="600" height="400">
+
 <a id="md:usage" class="tsd-anchor"></a><h2><a href="#md:usage">Usage</a></h2><ol>
 <li>Import the library into your TypeScript project:</li>
 </ol>
@@ -106,6 +116,7 @@ Recording cycle records audiochunks of a given duration and uploads them as a li
 <li><a href="#md:audiorecords"><span>Audio<wbr/>Records</span></a></li>
 <li>
 <ul>
+<li><a href="#md:sound"><span>Sound</span></a></li>
 <li><a href="#md:prerequisitions"><span>Prerequisitions</span></a></li>
 <li><a href="#md:usage"><span>Usage</span></a></li>
 <li><a href="#md:react-usage"><span>React <wbr/>Usage</span></a></li>
