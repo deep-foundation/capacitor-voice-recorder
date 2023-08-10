@@ -112,4 +112,4 @@ Feel free to contribute. Please fork the repository and submit a pull request fo
 
 [`AudioRecords`]: https://deep-foundation.github.io/capacitor-voice-recorder/enums/LinkName.html#AudioRecords
 [`Sound`]: https://deep-foundation.github.io/capacitor-voice-recorder/enums/LinkName.html#Sound
-[`IRecord`] : https://deep-foundation.github.io/capacitor-voice-recorder/interfaces/IRecord.html
+[`IRecord`]: https://deep-foundation.github.io/capacitor-voice-recorder/interfaces/IRecord.html
