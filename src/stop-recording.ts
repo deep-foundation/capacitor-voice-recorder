@@ -1,6 +1,6 @@
-import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
+import { DeepClient } from "@deep-foundation/deeplinks/imports/client.js";
 import { VoiceRecorder } from "capacitor-voice-recorder";
-import { uploadRecords } from "./upload-records";
+import { uploadRecords } from "./upload-records.js";
 
 
 export interface ISound { // Represents a recorded sound.

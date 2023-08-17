@@ -1,6 +1,6 @@
 export { PACKAGE_NAME } from "./package-name.js";
-export { createContainer } from './create-container';
-export { startRecording } from './strart-recording';
+export { createContainer } from './create-container.js';
+export { startRecording } from './strart-recording.js';
 export { pauseRecording } from "./pause-recording.js";
 export { resumeRecording } from "./resume-recording.js";
 export { stopRecording, type ISound, type IStopRecordingOptions } from "./stop-recording.js";
@@ -11,9 +11,9 @@ export { usePermissions } from "./hooks/use-permissions.js";
 export { useRecordingCycle, type IUseRecordingCycle } from "./hooks/use-recording-cycle.js";
 export { useRecordingStatus } from "./hooks/use-recording-status.js";
 export { uploadRecords, type IRecord, type IUploadRecordsOptions } from "./upload-records.js";
-export { LinkName } from './link-name';
+export { LinkName } from './link-name.js';
 
-import { startRecording } from './strart-recording';
+import { startRecording } from './strart-recording.js';
 import { pauseRecording } from "./pause-recording.js";
 import { resumeRecording } from "./resume-recording.js";
 import { stopRecording } from "./stop-recording.js";

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocalStore } from '@deep-foundation/store/local';
-import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
-import { createContainer } from '../create-container';
+import { DeepClient } from '@deep-foundation/deeplinks/imports/client.js';
+import { createContainer } from '../create-container.js';
 
  // Custom React hook for managing the container link ID.
  // - deep: The DeepClient instance.

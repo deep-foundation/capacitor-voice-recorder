@@ -1,13 +1,13 @@
 import React, { useState, useRef } from 'react';
-import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
+import { DeepClient } from "@deep-foundation/deeplinks/imports/client.js";
 import { Button, Card, CardBody, CardHeader, Heading, Stack, Text } from '@chakra-ui/react';
-import { useRecordingStatus } from '../hooks/use-recording-status';
-import { useRecordingCycle } from '../hooks/use-recording-cycle';
-import { useContainer } from '../hooks/use-container';
-import { startRecording } from '../strart-recording';
-import { stopRecording } from '../stop-recording';
-import { downloadRecords } from '../download-records';
-import { usePermissions } from '../hooks/use-permissions';
+import { useRecordingStatus } from '../hooks/use-recording-status.js';
+import { useRecordingCycle } from '../hooks/use-recording-cycle.js';
+import { useContainer } from '../hooks/use-container.js';
+import { startRecording } from '../strart-recording.js';
+import { stopRecording } from '../stop-recording.js';
+import { downloadRecords } from '../download-records.js';
+import { usePermissions } from '../hooks/use-permissions.js';
 
 /**
  * React component for using the voice recorder.

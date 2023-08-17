@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { VoiceRecorder } from "capacitor-voice-recorder";
-import { uploadRecords, IRecord } from '../upload-records';
-import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
+import { uploadRecords, IRecord } from '../upload-records.js';
+import { DeepClient } from "@deep-foundation/deeplinks/imports/client.js";
 
 // Delays the execution by a specified amount of time.
 
