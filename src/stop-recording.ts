@@ -12,7 +12,12 @@ export interface ISound { // Represents a recorded sound.
 
 export interface IStopRecordingOptions { // Represents the parameters for stopping a recording.
   deep: DeepClient; // The DeepClient object used for communication.
-  containerLinkId: number; // The ID of the container link.
+  /**
+   * The ID of the container link.
+   * 
+   * @defaultValue deep.linkId
+   */
+  containerLinkId?: number; // The ID of the container link.
   startTime: string; // The start time of the recording.
 }
 
@@ -20,7 +25,7 @@ export interface IStopRecordingOptions { // Represents the parameters for stoppi
 
 export async function stopRecording({
   deep,
-  containerLinkId,
+  containerLinkId = deep.linkId!,
   startTime,
 }: IStopRecordingOptions): Promise<ISound> {
   const { value: sound } = await VoiceRecorder.stopRecording(); // Stop the recording and obtain the recorded sound.
