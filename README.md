@@ -55,9 +55,9 @@ const permissionSatus = await Recorder.getAudioRecordingPermissions();
 
 4. Recording Audio:
 
-Start recording audio and return the start time as a string.
+Start recording audio and return the playback status.
 ```js
-const startTime = await Recorder.startRecording(); 
+const isrecording = await Recorder.startRecording(); 
 ```
 Pause the ongoing recording and return the playback status.
 ```js 
@@ -72,7 +72,6 @@ Stop the ongoing recording, upload the recorded sound, and return the recorded s
 const { recordDataBase64, msDuration, mimeType } = await Recorder.stopRecording({
   deep, // The DeepClient object
   containerLinkId, // The ID of the container link
-  startTime, // The start time of the recording returned by startRecording();
 });
 ```
 
