@@ -45,6 +45,12 @@ Make sure to give permissions to Sound package with Join link.</p>
 </code><button>Copy</button></pre>
 <p>You can also create it manually inside your deepcase client. Open Insert menu, search for and then insert &quot;AudioRecords&quot; type link.</p>
 <ol start="3">
+<li>Getting permissions:</li>
+</ol>
+<p>Call getAudioRecordingPermissions method of the Recorder to get audio recording and microphone usage permissions for your app.</p>
+<pre><code class="language-js"><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">permissionSatus</span><span class="hl-1"> = </span><span class="hl-0">await</span><span class="hl-1"> </span><span class="hl-2">Recorder</span><span class="hl-1">.</span><span class="hl-6">getAudioRecordingPermissions</span><span class="hl-1">(); </span>
+</code><button>Copy</button></pre>
+<ol start="4">
 <li>Recording Audio:</li>
 </ol>
 <p>Start recording audio and return the start time as a string.</p>
@@ -59,7 +65,7 @@ Make sure to give permissions to Sound package with Join link.</p>
 <p>Stop the ongoing recording, upload the recorded sound, and return the recorded sound with info.</p>
 <pre><code class="language-js"><span class="hl-4">const</span><span class="hl-1"> { </span><span class="hl-5">recordDataBase64</span><span class="hl-1">, </span><span class="hl-5">msDuration</span><span class="hl-1">, </span><span class="hl-5">mimeType</span><span class="hl-1"> } = </span><span class="hl-0">await</span><span class="hl-1"> </span><span class="hl-2">Recorder</span><span class="hl-1">.</span><span class="hl-6">stopRecording</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">deep</span><span class="hl-1">, </span><span class="hl-7">// The DeepClient object</span><br/><span class="hl-1">  </span><span class="hl-2">containerLinkId</span><span class="hl-1">, </span><span class="hl-7">// The ID of the container link</span><br/><span class="hl-1">  </span><span class="hl-2">startTime</span><span class="hl-1">, </span><span class="hl-7">// The start time of the recording returned by startRecording();</span><br/><span class="hl-1">});</span>
 </code><button>Copy</button></pre>
-<ol start="4">
+<ol start="5">
 <li>Download records from deep database:</li>
 </ol>
 <p>Download all existing records made by this recorder as array of <a href="https://deep-foundation.github.io/capacitor-voice-recorder/interfaces/IRecord.html"><code>IRecord</code></a> records.</p>
@@ -141,6 +147,8 @@ Recording cycle records audiochunks of a given duration and uploads them as a li
 <li><a href="functions/VoiceRecorder.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-64"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-function)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.39 16V7.24H14.55V8.224H10.446V11.128H14.238V12.112H10.47V16H9.39Z" fill="var(--color-text)"></path></g></svg><span>Voice<wbr/>Recorder</span></a></li>
 <li><a href="functions/createContainer.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>create<wbr/>Container</span></a></li>
 <li><a href="functions/downloadRecords.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>download<wbr/>Records</span></a></li>
+<li><a href="functions/getAudioRecordingPermissions.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>get<wbr/>Audio<wbr/>Recording<wbr/>Permissions</span></a></li>
+<li><a href="functions/getDeviceRecordAbility.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>get<wbr/>Device<wbr/>Record<wbr/>Ability</span></a></li>
 <li><a href="functions/useContainer.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>use<wbr/>Container</span></a></li>
 <li><a href="functions/usePermissions.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>use<wbr/>Permissions</span></a></li>
 <li><a href="functions/useRecordingCycle.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg><span>use<wbr/>Recording<wbr/>Cycle</span></a></li>
