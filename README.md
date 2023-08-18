@@ -46,7 +46,14 @@ const containerLinkId = await createContainer(deep);
 
 You can also create it manually inside your deepcase client. Open Insert menu, search for and then insert "AudioRecords" type link.
 
-3. Recording Audio:
+3. Getting permissions:
+
+Call getAudioRecordingPermissions method of the Recorder to get audio recording and microphone usage permissions for your app.
+```js
+const permissionSatus = await Recorder.getAudioRecordingPermissions(); 
+```
+
+4. Recording Audio:
 
 Start recording audio and return the start time as a string.
 ```js
@@ -69,7 +76,7 @@ const { recordDataBase64, msDuration, mimeType } = await Recorder.stopRecording(
 });
 ```
 
-4. Download records from deep database:
+5. Download records from deep database:
 
 Download all existing records made by this recorder as array of [`IRecord`] records.
 ```js
