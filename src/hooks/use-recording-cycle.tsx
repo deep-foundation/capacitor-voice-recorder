@@ -37,10 +37,22 @@ export function useRecordingCycle({ deep, recording, containerLinkId, duration }
     const startRecordingCycle = async () => {
       for (; recording && loop;) { // Continue recording while recording is enabled and the loop is not interrupted.
         await VoiceRecorder.startRecording(); // Start the recording.
-        const startTime = new Date().toLocaleDateString(); // Get the start time of the recording.
+        const startTime = new Date().toLocaleDateString(undefined, {
+          year: 'numeric', 
+          month: '2-digit', 
+          day: '2-digit', 
+          hour: '2-digit', 
+          minute: '2-digit', 
+          second: '2-digit'}).replace(/\D/g, ''); // Get the start time of the recording.
         await delay(duration); // Delay for the specified duration.
         const { value: sound } = await VoiceRecorder.stopRecording(); // Stop the recording and obtain the recorded sound.
-        const endTime = new Date().toLocaleDateString(); // Get the end time of the recording.
+        const endTime = new Date().toLocaleDateString(undefined, {
+          year: 'numeric', 
+          month: '2-digit', 
+          day: '2-digit', 
+          hour: '2-digit', 
+          minute: '2-digit', 
+          second: '2-digit'}).replace(/\D/g, ''); // Get the end time of the recording.
         setRecords([...records, { sound, startTime, endTime }]); // Add the recorded sound to the records.
       }
     };

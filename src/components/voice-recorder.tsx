@@ -23,8 +23,6 @@ export function VoiceRecorder({ deep }: { deep: DeepClient }) {
   const audioRecordingStatus = useRecordingStatus({}); // Custom hook to get audio recording status
   const sounds = useRecordingCycle({ deep, recording, containerLinkId, duration: 5000 }); // Custom hook to fire recording cycle
 
-  const startTime = useRef(''); // Reference to store start time of recording
-
   return (
     <Stack>
       <Card>
@@ -64,10 +62,10 @@ export function VoiceRecorder({ deep }: { deep: DeepClient }) {
           </Heading>
         </CardHeader>
       </Card>
-      <Button onClick={async () => startTime.current = await startRecording()}>
+      <Button onClick={async () => await startRecording()}>
         START RECORDING
       </Button>
-      <Button onClick={async () => await stopRecording({ deep, containerLinkId, startTime: startTime.current })}>
+      <Button onClick={async () => await stopRecording({ deep, containerLinkId })}>
         STOP RECORDING
       </Button>
       <Button onClick={() => setRecording(true)}>
