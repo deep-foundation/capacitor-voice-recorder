@@ -53,8 +53,8 @@ Make sure to give permissions to Sound package with Join link.</p>
 <ol start="4">
 <li>Recording Audio:</li>
 </ol>
-<p>Start recording audio and return the start time as a string.</p>
-<pre><code class="language-js"><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">startTime</span><span class="hl-1"> = </span><span class="hl-0">await</span><span class="hl-1"> </span><span class="hl-2">Recorder</span><span class="hl-1">.</span><span class="hl-6">startRecording</span><span class="hl-1">(); </span>
+<p>Start recording audio and return the playback status.</p>
+<pre><code class="language-js"><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">isrecording</span><span class="hl-1"> = </span><span class="hl-0">await</span><span class="hl-1"> </span><span class="hl-2">Recorder</span><span class="hl-1">.</span><span class="hl-6">startRecording</span><span class="hl-1">(); </span>
 </code><button>Copy</button></pre>
 <p>Pause the ongoing recording and return the playback status.</p>
 <pre><code class="language-js"><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">ispaused</span><span class="hl-1"> = </span><span class="hl-0">await</span><span class="hl-1"> </span><span class="hl-2">Recorder</span><span class="hl-1">.</span><span class="hl-6">pauseRecording</span><span class="hl-1">();; </span>
@@ -63,7 +63,7 @@ Make sure to give permissions to Sound package with Join link.</p>
 <pre><code class="language-js"><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">isresumed</span><span class="hl-1"> = </span><span class="hl-0">await</span><span class="hl-1"> </span><span class="hl-2">Recorder</span><span class="hl-1">.</span><span class="hl-6">resumeRecording</span><span class="hl-1">(); </span>
 </code><button>Copy</button></pre>
 <p>Stop the ongoing recording, upload the recorded sound, and return the recorded sound with info.</p>
-<pre><code class="language-js"><span class="hl-4">const</span><span class="hl-1"> { </span><span class="hl-5">recordDataBase64</span><span class="hl-1">, </span><span class="hl-5">msDuration</span><span class="hl-1">, </span><span class="hl-5">mimeType</span><span class="hl-1"> } = </span><span class="hl-0">await</span><span class="hl-1"> </span><span class="hl-2">Recorder</span><span class="hl-1">.</span><span class="hl-6">stopRecording</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">deep</span><span class="hl-1">, </span><span class="hl-7">// The DeepClient object</span><br/><span class="hl-1">  </span><span class="hl-2">containerLinkId</span><span class="hl-1">, </span><span class="hl-7">// The ID of the container link</span><br/><span class="hl-1">  </span><span class="hl-2">startTime</span><span class="hl-1">, </span><span class="hl-7">// The start time of the recording returned by startRecording();</span><br/><span class="hl-1">});</span>
+<pre><code class="language-js"><span class="hl-4">const</span><span class="hl-1"> { </span><span class="hl-5">recordDataBase64</span><span class="hl-1">, </span><span class="hl-5">msDuration</span><span class="hl-1">, </span><span class="hl-5">mimeType</span><span class="hl-1"> } = </span><span class="hl-0">await</span><span class="hl-1"> </span><span class="hl-2">Recorder</span><span class="hl-1">.</span><span class="hl-6">stopRecording</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">deep</span><span class="hl-1">, </span><span class="hl-7">// The DeepClient object</span><br/><span class="hl-1">  </span><span class="hl-2">containerLinkId</span><span class="hl-1">, </span><span class="hl-7">// The ID of the container link</span><br/><span class="hl-1">});</span>
 </code><button>Copy</button></pre>
 <ol start="5">
 <li>Download records from deep database:</li>
