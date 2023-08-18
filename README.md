@@ -41,7 +41,7 @@ import Recorder, { createContainer } from "@deep-foundation/capacitor-voice-reco
 2. Create container link of type "AudioRecords" to store Recorder data:
 
 ```js
-const containerLinkId = await createContainer(deep:DeepClient)
+const containerLinkId = await createContainer(deep);
 ```
 
 You can also create it manually inside your deepcase client. Open Insert menu, search for and then insert "AudioRecords" type link.
