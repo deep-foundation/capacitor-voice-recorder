@@ -85,7 +85,7 @@ const records = Recorder.downloadRecords(deep);
 1. Import VoiceRecorder react component or hooks:
 
 ```js
-import { VoiceRecorder, useContainer, useRecordingCycle, useRecordingStatus } from "@deep-foundation/capacitor-voice-recorder";
+import { WithVoiceRecorder, VoiceRecorder, useContainer, useRecordingCycle, useRecordingStatus } from "@deep-foundation/capacitor-voice-recorder";
 ```
 
 2. Create VoiceRecorder component instance inside your deep app and pass a DeepClient instance.
@@ -95,6 +95,13 @@ import { VoiceRecorder, useContainer, useRecordingCycle, useRecordingStatus } fr
 ```
 
 You will see basic ui with all package functionality.
+
+Alternatively you can use WithVoiceRecorder Component like that:
+```jsx
+<WithVoiceRecorder deep={yourDeepInstance} containerLinkId={yourContainerLinkId}>
+    <VoiceRecorder />
+</WithVoiceRecorder>
+```
 
 3. Custom hooks can be used anywhere in your deep app:
 

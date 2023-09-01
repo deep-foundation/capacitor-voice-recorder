@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DeepClient } from "@deep-foundation/deeplinks/imports/client.js";
 import { Button, Card, CardBody, CardHeader, Heading, Stack, Text } from '@chakra-ui/react';
 import { useRecordingStatus } from '../hooks/use-recording-status.js';
@@ -13,15 +13,21 @@ import { usePermissions } from '../hooks/use-permissions.js';
  * React component for using the voice recorder.
  * @param {DeepClient} deep - The DeepClient object instance.
  */
-export function VoiceRecorder({ deep }: { deep: DeepClient }) {
+export function VoiceRecorder({ deep, containerLinkId: passedContainerLinkId }: { deep: DeepClient; containerLinkId?: number }) {
   const [recording, setRecording] = useState(false); // State variable to track recording status
   const [records, setRecords] = useState<any[]>([]); // State variable to store downloaded audio files
 
+  const containerLinkIdFromHook = useContainer(deep);
+  const [containerLinkId, setContainerLinkId] = useState(passedContainerLinkId || containerLinkIdFromHook);
+
+  useEffect(() => {
+    setContainerLinkId(passedContainerLinkId || containerLinkIdFromHook);
+  }, [deep, passedContainerLinkId, containerLinkIdFromHook]);
 
   const { recorderPermissions, deviceSupport, getPermissions, getDeviceSupport } = usePermissions(); // Custom hook to get permissions
-  const containerLinkId = useContainer(deep); // Custom hook to get container link ID
   const audioRecordingStatus = useRecordingStatus({}); // Custom hook to get audio recording status
   const sounds = useRecordingCycle({ deep, recording, containerLinkId, duration: 5000 }); // Custom hook to fire recording cycle
+
 
   return (
     <Stack>
