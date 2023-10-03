@@ -10,7 +10,7 @@ export { stopRecording, type ISound, type IStopRecordingOptions } from "./stop-r
 export { VoiceRecorder } from "./components/voice-recorder.js";
 export { downloadRecords } from "./download-records.js";
 export { useContainer } from "./hooks/use-container.js";
-export { usePermissions } from "./hooks/use-permissions.js";
+export { usePermissions, usePermissions as useVoiceRecorderPermissions } from "./hooks/use-permissions.js";
 export { useRecordingCycle, type IUseRecordingCycle } from "./hooks/use-recording-cycle.js";
 export { useRecordingStatus } from "./hooks/use-recording-status.js";
 export { uploadRecords, type IRecord, type IUploadRecordsOptions } from "./upload-records.js";
