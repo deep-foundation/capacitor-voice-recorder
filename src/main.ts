@@ -1,7 +1,9 @@
 export {WithPermissions, WithPermissions as WithVoiceRecorderPermissions,WithPermissionsOptions, WithPermissionsOptions as WithVoiceRecorderPermissionsOptions} from './components/with-permissions.js'
 
+export {requestPermissions} from './request-permissions.js'
+
 export { PACKAGE_NAME } from "./package-name.js";
-export { requestAudioRecordingPermissions , canDeviceVoiceRecord  } from './get-permissions.js';
+export { canDeviceVoiceRecord  } from './get-permissions.js';
 export { createContainer } from './create-container.js';
 export { startRecording } from './strart-recording.js';
 export { pauseRecording } from "./pause-recording.js";
@@ -21,7 +23,7 @@ import { pauseRecording } from "./pause-recording.js";
 import { resumeRecording } from "./resume-recording.js";
 import { stopRecording } from "./stop-recording.js";
 import { uploadRecords } from "./upload-records.js";
-import { requestAudioRecordingPermissions } from "./get-permissions.js"
+import { requestPermissions } from './request-permissions.js';
 
 export { Package, PackageOptions } from './package.js'
 
@@ -32,6 +34,6 @@ const Recorder = {
     resumeRecording,
     stopRecording,
     uploadRecords,
-    requestAudioRecordingPermissions
+    requestAudioRecordingPermissions: requestPermissions
 };
 export default Recorder;
