@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { VoiceRecorder as CapacitorVoiceRecorder } from 'capacitor-voice-recorder';
-import { canDeviceVoiceRecord } from "../get-permissions.js";
+import { checkPermission } from "../check-permissions.js";
 import { requestPermissions } from '../request-permissions.js';
 
 // Custom hook to check for device support and manage camera permissions.
@@ -20,7 +20,7 @@ export const usePermissions = () => {
 	
 	const getDeviceSupport = async () => {
 		// Request ability to record from the device
-		const newDeviceSupport  = await canDeviceVoiceRecord();
+		const newDeviceSupport  = await getPermissions();
 		setDeviceSupport(newDeviceSupport); // Set the device support state.
 	}
 	const getPermissions = async () => {
