@@ -1,4 +1,4 @@
-export {WithPermissions,WithPermissionsOptions} from './components/with-permissions.js'
+export {WithPermissions, WithPermissions as WithVoiceRecorderPermissions,WithPermissionsOptions, WithPermissionsOptions as WithVoiceRecorderPermissionsOptions} from './components/with-permissions.js'
 
 export { PACKAGE_NAME } from "./package-name.js";
 export { requestAudioRecordingPermissions , canDeviceVoiceRecord  } from './get-permissions.js';
