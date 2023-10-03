@@ -5,8 +5,8 @@ import { LinkName } from "./link-name.js";
 
 export interface IRecord { // Represents a record containing sound and its details.
   sound: ISound; // The recorded sound.
-  startTime: string; // The start time of the recording.
-  endTime: string; // The end time of the recording.
+  startTime: number; // The start time of the recording.
+  endTime: number; // The end time of the recording.
 }
 
 export interface IUploadRecordsOptions { // Represents the parameters for uploading records.
@@ -87,7 +87,7 @@ export async function uploadRecords({deep, containerLinkId, records}:IUploadReco
           to: {
             data: {
               type_id: startTimeTypeLinkId,
-              string: { data: { value: record.startTime } },
+              number: { data: { value: record.startTime } },
             }
           }
         },
@@ -96,7 +96,7 @@ export async function uploadRecords({deep, containerLinkId, records}:IUploadReco
           to: {
             data: {
               type_id: endTimeTypeLinkId,
-              string: { data: { value: record.endTime } },
+              number: { data: { value: record.endTime } },
             }
           }
         }]

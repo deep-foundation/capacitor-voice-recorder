@@ -16,7 +16,7 @@ export interface IRecord { // Represents a downloaded record.
  * @param {DeepClient} deep - The DeepClient instance.
  */
 
-export async function downloadRecords(deep: DeepClient): Promise<IRecord[]> {
+export async function getRecords(deep: DeepClient): Promise<IRecord[]> {
   // Retrieve the link IDs for the nessesary types.
   const recordTypelinkId = await deep.id(PACKAGE_NAME, LinkName[LinkName.Record]);
   const startTimeTypeLinkId = await deep.id(PACKAGE_NAME, LinkName[LinkName.StartTime]);
