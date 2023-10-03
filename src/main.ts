@@ -3,7 +3,7 @@ export {WithPermissions, WithPermissions as WithVoiceRecorderPermissions,WithPer
 export {requestPermissions} from './request-permissions.js'
 
 export { PACKAGE_NAME } from "./package-name.js";
-export { checkPermission as canDeviceVoiceRecord  } from './check-permissions.js';
+export { checkPermissions as canDeviceVoiceRecord  } from './check-permissions.js';
 export { createContainer } from './create-container.js';
 export { startRecording } from './strart-recording.js';
 export { pauseRecording } from "./pause-recording.js";

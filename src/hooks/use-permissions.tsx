@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { VoiceRecorder as CapacitorVoiceRecorder } from 'capacitor-voice-recorder';
-import { checkPermission } from "../check-permissions.js";
+import { checkPermissions } from "../check-permissions.js";
 import { requestPermissions } from '../request-permissions.js';
 
 // Custom hook to check for device support and manage camera permissions.
