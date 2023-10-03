@@ -1,4 +1,4 @@
-import { usePermissions } from "../main";
+import { usePermissions } from "../main.js";
 
 export function WithPermissions(options: WithPermissionsOptions) {
   const {deviceSupport,recorderPermissions,isLoading} = usePermissions();

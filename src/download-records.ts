@@ -1,5 +1,5 @@
 import { DeepClient } from "@deep-foundation/deeplinks/imports/client.js";
-import { Link } from "@deep-foundation/deeplinks/imports/minilinks";
+import { Link } from "@deep-foundation/deeplinks/imports/minilinks.js";
 import { PACKAGE_NAME } from './package-name.js';
 import { LinkName } from "./link-name.js";
 

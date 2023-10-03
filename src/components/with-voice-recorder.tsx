@@ -1,12 +1,12 @@
 import React, { ReactElement, useState, useEffect } from 'react';
-import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
+import { DeepClient } from '@deep-foundation/deeplinks/imports/client.js';
 import { 
     useContainer, 
     usePermissions, 
     useRecordingStatus, 
     useRecordingCycle,
     downloadRecords 
-} from '../main'; 
+} from '../main.js'; 
 
 export type WithVoiceRecorderProps = {
     deep: DeepClient;
