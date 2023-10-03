@@ -1,19 +1,17 @@
 import { VoiceRecorder } from 'capacitor-voice-recorder';
 
 /**
- * Get recording permissions.
+ * Request recording permissions.
  */
-
-export const getAudioRecordingPermissions = async () => {
+export const requestAudioRecordingPermissions = async () => {
   const { value: recorderPermissions } = await VoiceRecorder.requestAudioRecordingPermission();
   return recorderPermissions as boolean;
 }
 
 /**
- * Get device ability to record.
+ * Gets boolean value that determines whether the device can record voice.
  */
-
-export const getDeviceRecordAbility = async () => {
+export const canDeviceVoiceRecord = async () => {
   const { value: deviceSupport } = await VoiceRecorder.canDeviceVoiceRecord();
   return deviceSupport as boolean;
 }
