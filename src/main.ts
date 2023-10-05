@@ -25,7 +25,6 @@ export {usePermissionsRequesting,usePermissionsRequesting as useVoiceRecorderPer
 export {usePermissionsStatus,usePermissionsStatus as useVoiceRecorderPermissionsStatus} from './hooks/use-permissions-status.js'
 export {useRecording,useRecording as useVoiceRecording} from './hooks/use-recording.js'
 
-export { requestPermissions } from "./request-permissions.js";
 export {
   IStopAndUploadRecordingOptions,
   stopAndUploadRecording,
@@ -54,6 +53,7 @@ export {
   type IUploadRecordsOptions,
 } from "./upload-records.js";
 export { LinkName } from "./link-name.js";
+export { requestPermissions, requestPermissions as requestVoiceRecorderPermissions } from "./request-permissions.js";
 
 import { startRecording } from "./strart-recording.js";
 import { pauseRecording } from "./pause-recording.js";
