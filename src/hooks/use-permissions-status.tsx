@@ -1,13 +1,12 @@
 import { useEffect, useState, useRef } from "react";
 import { getPermissionsStatus } from "../get-permissions-status.js";
+import { App } from '@capacitor/app';
 
-const DEFAULT_INTERVAL_MS = 1000;
 
-export function usePermissionsStatus(options: IUsePermissionsStatusOptions = {}) {
+export function usePermissionsStatus() {
   const [permissionsStatus, setPermissionsStatus] = useState<boolean | undefined>(undefined);
   const [error, setError] = useState<unknown | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const intervalRef = useRef<number | null>(null);
 
   const updatePermissionsStatus = async () => {
     setIsLoading(true); 
@@ -22,16 +21,19 @@ export function usePermissionsStatus(options: IUsePermissionsStatusOptions = {})
     }
   };
 
+
   useEffect(() => {
     updatePermissionsStatus();
-    intervalRef.current = window.setInterval(updatePermissionsStatus, options.intervalInMs || DEFAULT_INTERVAL_MS);
+
+    const resumeListener = App.addListener('resume', () => {
+      updatePermissionsStatus();
+    });
 
     return () => {
-      if (intervalRef.current) {
-        window.clearInterval(intervalRef.current);
-      }
+      resumeListener.remove();
     };
-  }, [options.intervalInMs]);
+  }, []); 
+
 
   return { permissionsStatus, updatePermissionsStatus, error, isLoading };
 }
@@ -43,6 +45,3 @@ export type IUsePermissionsStatusReturn = {
   isLoading: boolean; 
 };
 
-export type IUsePermissionsStatusOptions = {
-  intervalInMs?: number;
-};
