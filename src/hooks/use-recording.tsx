@@ -23,7 +23,7 @@ export function useRecording(options: IUseRecordingOptions) {
       log("Recording started")
       const { savingIntervalInMs = 1*60*1000 } = options;
 
-      timeoutRef.current = setTimeout(() => {
+      timeoutRef.current = setInterval(() => {
         log("Going to stop and upload recording")
         stopAndUploadRecording(options).catch(setError);
       }, savingIntervalInMs);
