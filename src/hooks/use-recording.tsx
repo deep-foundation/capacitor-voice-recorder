@@ -8,31 +8,31 @@ import {
 import { packageLog } from "../package-log.js";
 
 export function useRecording(options: IUseRecordingOptions) {
-  const log = packageLog.extend(useRecording.name)
+  const log = packageLog.extend(useRecording.name);
   const [error, setError] = useState<unknown | null>(null);
-  log({error, setError})
+  log({ error, setError });
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  log({timeoutRef})
+  log({ timeoutRef });
 
   const initiateRecording = async () => {
     try {
       await startRecording();
-      log("Recording started")
-      const { savingIntervalInMs = 1*60*1000 } = options;
+      log("Recording started");
+      const { savingIntervalInMs = 1 * 60 * 1000 } = options;
 
-      timeoutRef.current = setInterval(() => {
-        log("Going to stop and upload recording")
-        stopAndUploadRecording(options).catch(setError);
+      timeoutRef.current = setInterval(async () => {
+        log("Going to stop and upload recording");
+        await stopAndUploadRecording(options).catch(setError);
       }, savingIntervalInMs);
     } catch (error) {
-      log({error: error})
+      log({ error: error });
       setError(error);
     }
   };
 
   const cleanupRecording = () => {
-    log("Cleaning up recording")
+    log("Cleaning up recording");
     stopAndUploadRecording(options);
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
