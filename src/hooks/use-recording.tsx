@@ -16,14 +16,11 @@ export function useRecording(options: IUseRecordingOptions) {
   const initiateRecording = async () => {
     try {
       await startRecording();
-      const { savingIntervalInMs } = options;
+      const { savingIntervalInMs = 1*60*1000 } = options;
 
-      // If a saving interval is provided, set up a timeout to stop and upload the recording
-      if (savingIntervalInMs) {
-        timeoutRef.current = setTimeout(() => {
-          stopAndUploadRecording(options).catch(setError);
-        }, savingIntervalInMs);
-      }
+      timeoutRef.current = setTimeout(() => {
+        stopAndUploadRecording(options).catch(setError);
+      }, savingIntervalInMs);
     } catch (err) {
       setError(err);
     }
