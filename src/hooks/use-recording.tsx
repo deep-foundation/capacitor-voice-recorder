@@ -9,11 +9,9 @@ import { packageLog } from "../package-log.js";
 
 export function useRecording(options: IUseRecordingOptions) {
   const log = packageLog.extend(useRecording.name)
-  // State to capture any potential errors
   const [error, setError] = useState<unknown | null>(null);
   log({error, setError})
 
-  // Ref to store the timeout ID, ensuring proper cleanup on unmount
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   log({timeoutRef})
 
@@ -44,14 +42,12 @@ export function useRecording(options: IUseRecordingOptions) {
   useEffect(() => {
     initiateRecording();
 
-    // Cleanup function to be run when the component using the hook unmounts
     return cleanupRecording;
   }, [options]);
 
   return { error };
 }
 
-// Type definitions
 export type IUseRecordingOptions = {
   deep: DeepClient;
   savingIntervalInMs?: number;
