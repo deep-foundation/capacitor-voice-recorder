@@ -30,7 +30,7 @@ export function usePermissionsStatus() {
     });
 
     return () => {
-      resumeListener.remove();
+      resumeListener.then(resumeListener => resumeListener.remove());
     };
   }, []); 
 
