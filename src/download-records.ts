@@ -1,7 +1,7 @@
-import { DeepClient } from "@deep-foundation/deeplinks/imports/client.js";
-import { Link } from "@deep-foundation/deeplinks/imports/minilinks.js";
-import { PACKAGE_NAME } from './package-name.js';
-import { LinkName } from "./link-name.js";
+import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
+import { Link } from "@deep-foundation/deeplinks/imports/minilinks";
+import { PACKAGE_NAME } from './package-name';
+import { LinkName } from "./link-name";
 
 export interface IRecord { // Represents a downloaded record.
   sound: string,

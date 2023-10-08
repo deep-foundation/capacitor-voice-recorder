@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getDeviceSupportStatus } from "../get-device-support-status.js";
+import { getDeviceSupportStatus } from "../get-device-support-status";
 
 /**
  * Custom hook to manage device support status.

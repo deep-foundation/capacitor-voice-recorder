@@ -1,7 +1,7 @@
-import { DeepClient } from "@deep-foundation/deeplinks/imports/client.js";
-import { PACKAGE_NAME } from './package-name.js';
-import { ISound } from "./stop-recording.js";
-import { LinkName } from "./link-name.js";
+import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
+import { PACKAGE_NAME } from './package-name';
+import { ISound } from "./stop-recording";
+import { LinkName } from "./link-name";
 
 export interface IRecord { // Represents a record containing sound and its details.
   sound: ISound; // The recorded sound.

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ICurrentStatus, getCurrentStatus } from "../get-current-status.js";
+import { ICurrentStatus, getCurrentStatus } from "../get-current-status";
 
 // Default interval for refreshing recording status
 const DEFAULT_INTERVAL_MS = 1000;

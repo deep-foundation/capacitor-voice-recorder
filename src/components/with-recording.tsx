@@ -1,4 +1,4 @@
-import { IUseRecordingOptions, useRecording } from "../hooks/use-recording.js";
+import { IUseRecordingOptions, useRecording } from "../hooks/use-recording";
 
 export function WithRecording(options: IWithRecordingOptions) {
   const {error} = useRecording(options)

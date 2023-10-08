@@ -2,7 +2,7 @@
 import {
   Package as BasePackage,
   PackageOptions as BasePackageOptions,
-} from '@deep-foundation/deeplinks/imports/package.js';
+} from '@deep-foundation/deeplinks/imports/package';
 
 /**
 Represents a deep package
