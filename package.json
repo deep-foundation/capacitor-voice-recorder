@@ -41,9 +41,6 @@
   },
   "devDependencies": {
     "@atao60/fse-cli": "^0.1.7",
-    "@babel/core": "^7.23.0",
-    "@babel/preset-env": "^7.22.20",
-    "@babel/preset-typescript": "^7.23.0",
     "@capacitor/cli": "^5.0.0",
     "@deep-foundation/npm-automation": "^18.1.11",
     "@testing-library/react": "^14.0.0",

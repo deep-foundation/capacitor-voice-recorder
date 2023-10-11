@@ -1,6 +1,16 @@
 {
-  "extends": ["@tsconfig/recommended/tsconfig.json", "@tsconfig/node18/tsconfig.json", "@tsconfig/create-react-app/tsconfig.json"],
+  "extends": "@tsconfig/recommended/tsconfig.json",
   "exclude": [
-    "jest.config.ts"
+    "jest.config.ts",
+  ],
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "jsx": "react",
+    "declaration": true,
+    "sourceMap": true
+  },
+  "include": [
+    "./src/**/*",
   ],
 }
