@@ -1,11 +1,11 @@
 import { renderHook, act } from "@testing-library/react";
-import { IUseRecordingOptions } from "../../../src/hooks/use-recording";
-import { useRecording } from "../../../src/main";
-import { startRecording } from "../../../src/start-recording";
-import { stopAndUploadRecording } from "../../../src/stop-and-upload-recording";
+import { IUseRecordingOptions } from "../../../src/hooks/use-recording.js";
+import { useRecording } from "../../../src/main.js";
+import { startRecording } from "../../../src/start-recording.js";
+import { stopAndUploadRecording } from "../../../src/stop-and-upload-recording.js";
 
-jest.mock("../../../src/start-recording");
-jest.mock("../../../src/stop-and-upload-recording");
+jest.mock("../../../src/start-recording.js");
+jest.mock("../../../src/stop-and-upload-recording.js");
 
 (startRecording as jest.Mock).mockImplementation(jest.fn());
 (stopAndUploadRecording as jest.Mock).mockImplementation(jest.fn());
