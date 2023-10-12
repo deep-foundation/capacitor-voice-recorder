@@ -13,8 +13,8 @@ export function useRecording(options: IUseRecordingOptions) {
   const [error, setError] = useState<unknown | null>(null);
   log({ error, setError });
 
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  log({ timeoutRef });
+  const intervalRef = useRef<NodeJS.Timer | null>(null);
+  log({ timeoutRef: intervalRef });
 
   const initiateRecording = async () => {
     try {
@@ -22,7 +22,7 @@ export function useRecording(options: IUseRecordingOptions) {
       log("Recording started");
       const { savingIntervalInMs = 1 * 60 * 1000 } = options;
 
-      timeoutRef.current = setInterval(async () => {
+      intervalRef.current = setInterval(async () => {
         log("Going to stop and upload recording");
         await stopAndUploadRecording(options).catch(setError);
       }, savingIntervalInMs);
@@ -37,8 +37,8 @@ export function useRecording(options: IUseRecordingOptions) {
     const status = await getCurrentStatus()
     if(status === 'NONE') return;
     await stopAndUploadRecording(options)
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
     }
   };
 
