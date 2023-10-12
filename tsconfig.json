@@ -1,16 +1,18 @@
 {
-  "extends": "@tsconfig/recommended/tsconfig.json",
-  "exclude": [
-    "jest.config.ts",
-  ],
   "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist",
-    "jsx": "react",
+    "target": "ES2022",
+    "jsx": "react-jsx",
+    "module": "NodeNext",
+    "resolveJsonModule": true,
     "declaration": true,
-    "sourceMap": true
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "NodeNext",
+    "skipLibCheck": true,
+    "sourceMap": true,
+    // Only for hasura, react-hasura, materialized-path, deeplinks because they are bad typed
+    "strictNullChecks": false,
+    "strict": false,
+
   },
-  "include": [
-    "./src/**/*",
-  ],
 }
