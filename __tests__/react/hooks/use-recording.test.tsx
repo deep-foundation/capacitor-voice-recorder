@@ -4,8 +4,8 @@ import { useRecording } from "../../../src/main.js";
 import { startRecording } from "../../../src/start-recording.js";
 import { stopAndUploadRecording } from "../../../src/stop-and-upload-recording.js";
 
-jest.mock("../../../src/start-recording.js");
-jest.mock("../../../src/stop-and-upload-recording.js");
+jest.mock("../../../src/start-recording");
+jest.mock("../../../src/stop-and-upload-recording");
 
 (startRecording as jest.Mock).mockImplementation(jest.fn());
 (stopAndUploadRecording as jest.Mock).mockImplementation(jest.fn());
