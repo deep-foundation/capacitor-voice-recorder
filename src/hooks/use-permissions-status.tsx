@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { getPermissionsStatus } from "../get-permissions-status";
+import { getPermissionsStatus } from "../get-permissions-status.js";
 import { App } from '@capacitor/app';
 
 

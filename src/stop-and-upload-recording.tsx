@@ -1,6 +1,6 @@
-import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
-import { stopRecording } from "./stop-recording";
-import { uploadRecords } from "./upload-records";
+import { DeepClient } from "@deep-foundation/deeplinks/imports/client.js";
+import { stopRecording } from "./stop-recording.js";
+import { uploadRecords } from "./upload-records.js";
 
 export async function stopAndUploadRecording(options: IStopAndUploadRecordingOptions) {
   const { deep,  containerLinkId = deep.linkId! } = options;

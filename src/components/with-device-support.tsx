@@ -1,4 +1,4 @@
-import { useDeviceSupportStatus } from "../hooks/use-device-support-status";
+import { useDeviceSupportStatus } from "../hooks/use-device-support-status.js";
 
 export function WithDeviceSupport(options: IWithDeviceSupportOptions) {
   const { deviceSupport, isLoading } =

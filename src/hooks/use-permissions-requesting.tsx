@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { VoiceRecorder as CapacitorVoiceRecorder } from 'capacitor-voice-recorder';
-import { getPermissionsStatus } from "../get-permissions-status";
-import { requestPermissions } from '../request-permissions';
+import { getPermissionsStatus } from "../get-permissions-status.js";
+import { requestPermissions } from '../request-permissions.js';
 
 /**
  * Custom hook to manage voice recording permissions.

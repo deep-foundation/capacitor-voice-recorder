@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
-import { getPermissionsStatus } from "../get-permissions-status";
-import { usePermissionsStatus } from "../hooks/use-permissions-status";
+import { getPermissionsStatus } from "../get-permissions-status.js";
+import { usePermissionsStatus } from "../hooks/use-permissions-status.js";
 
 export function WithPermissionsStatus(options: IWithPermissionsStatusOptions) {
   const {error,permissionsStatus,isLoading} = usePermissionsStatus()

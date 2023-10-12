@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
-import { startRecording } from "../start-recording";
+import { DeepClient } from "@deep-foundation/deeplinks/imports/client.js";
+import { startRecording } from "../start-recording.js";
 import {
   IStopAndUploadRecordingOptions,
   stopAndUploadRecording,
-} from "../stop-and-upload-recording";
-import { packageLog } from "../package-log";
+} from "../stop-and-upload-recording.js";
+import { packageLog } from "../package-log.js";
 
 export function useRecording(options: IUseRecordingOptions) {
   const log = packageLog.extend(useRecording.name);

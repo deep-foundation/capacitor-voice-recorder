@@ -1,4 +1,4 @@
-import { usePermissionsRequesting } from "../main";
+import { usePermissionsRequesting } from "../main.js";
 
 export function WithPermissionsRequesting(options: IWithPermissionsRequestingOptions) {
   const {recorderPermissions,isLoading} = usePermissionsRequesting();

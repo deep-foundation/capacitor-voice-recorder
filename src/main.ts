@@ -1,68 +1,68 @@
 export {
   WithDeviceSupport,
   type IWithDeviceSupportOptions as IWithDeviceSupportOptions,
-} from "./components/with-device-support";
+} from "./components/with-device-support.js";
 export {
   WithPermissionsRequesting,
   WithPermissionsRequesting as WithVoiceRecorderPermissionsRequesting,
   type IWithPermissionsRequestingOptions as WithPermissionsRequestingOptions,
   type IWithPermissionsRequestingOptions as WithVoiceRecorderPermissionsRequestingOptions,
-} from "./components/with-permissions-requesting";
+} from "./components/with-permissions-requesting.js";
 export {
   WithPermissionsStatus,
   type IWithPermissionsStatusOptions,
   type IWithPermissionsStatusOptions as WithVoiceRecorderPermissionsStatusOptions,
-} from "./components/with-permissions-status";
+} from "./components/with-permissions-status.js";
 export {
     WithRecording,
     WithRecording as WithVoiceRecording,
     type IWithRecordingOptions,
     type IWithRecordingOptions as IWithVoiceRecordingOptions,
-} from './components/with-recording'
+} from './components/with-recording.js'
 
-export {useDeviceSupportStatus} from './hooks/use-device-support-status'
-export {usePermissionsRequesting,usePermissionsRequesting as useVoiceRecorderPermissionsRequesting} from './hooks/use-permissions-requesting'
-export {usePermissionsStatus,usePermissionsStatus as useVoiceRecorderPermissionsStatus} from './hooks/use-permissions-status'
-export {useRecording,useRecording as useVoiceRecording} from './hooks/use-recording'
+export {useDeviceSupportStatus} from './hooks/use-device-support-status.js'
+export {usePermissionsRequesting,usePermissionsRequesting as useVoiceRecorderPermissionsRequesting} from './hooks/use-permissions-requesting.js'
+export {usePermissionsStatus,usePermissionsStatus as useVoiceRecorderPermissionsStatus} from './hooks/use-permissions-status.js'
+export {useRecording,useRecording as useVoiceRecording} from './hooks/use-recording.js'
 
 export {
   type IStopAndUploadRecordingOptions,
   stopAndUploadRecording,
-} from "./stop-and-upload-recording";
+} from "./stop-and-upload-recording.js";
 
-export { PACKAGE_NAME } from "./package-name";
+export { PACKAGE_NAME } from "./package-name.js";
 export {
   getPermissionsStatus as checkPermissions,
   getPermissionsStatus as checkVoiceRecorderPermissions,
-} from "./get-permissions-status";
+} from "./get-permissions-status.js";
 
 
-export { startRecording } from "./strart-recording";
-export { pauseRecording } from "./pause-recording";
-export { resumeRecording } from "./resume-recording";
+export { startRecording } from "./strart-recording.js";
+export { pauseRecording } from "./pause-recording.js";
+export { resumeRecording } from "./resume-recording.js";
 export {
   stopRecording,
   type ISound,
   type IStopRecordingReturn,
-} from "./stop-recording";
-export { getRecords as downloadRecords } from "./download-records";
-export { useRecordingStatus } from "./hooks/use-recording-status";
+} from "./stop-recording.js";
+export { getRecords as downloadRecords } from "./download-records.js";
+export { useRecordingStatus } from "./hooks/use-recording-status.js";
 export {
   uploadRecords,
   type IRecord,
   type IUploadRecordsOptions,
-} from "./upload-records";
-export { LinkName } from "./link-name";
-export { requestPermissions, requestPermissions as requestVoiceRecorderPermissions } from "./request-permissions";
+} from "./upload-records.js";
+export { LinkName } from "./link-name.js";
+export { requestPermissions, requestPermissions as requestVoiceRecorderPermissions } from "./request-permissions.js";
 
-import { startRecording } from "./strart-recording";
-import { pauseRecording } from "./pause-recording";
-import { resumeRecording } from "./resume-recording";
-import { stopRecording } from "./stop-recording";
-import { uploadRecords } from "./upload-records";
-import { requestPermissions } from "./request-permissions";
+import { startRecording } from "./strart-recording.js";
+import { pauseRecording } from "./pause-recording.js";
+import { resumeRecording } from "./resume-recording.js";
+import { stopRecording } from "./stop-recording.js";
+import { uploadRecords } from "./upload-records.js";
+import { requestPermissions } from "./request-permissions.js";
 
-export { Package, type PackageOptions } from "./package";
+export { Package, type PackageOptions } from "./package.js";
 
 const Recorder = {
   startRecording,
