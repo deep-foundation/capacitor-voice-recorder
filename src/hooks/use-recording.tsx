@@ -36,7 +36,10 @@ export function useRecording(options: IUseRecordingOptions) {
     log("Cleaning up recording");
     const status = await getCurrentStatus()
     if(status === 'NONE') return;
-    await stopAndUploadRecording(options)
+    await stopAndUploadRecording(options).catch((error) => {
+      log({ error: error });
+      if(error.message === 'EMPTY_RECORDING') return;
+    })
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
