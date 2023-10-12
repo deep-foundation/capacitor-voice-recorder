@@ -13,6 +13,8 @@
     // Only for hasura, react-hasura, materialized-path, deeplinks because they are bad typed
     "strictNullChecks": false,
     "strict": false,
-
+    "rootDir": "./src",
+    "outDir": "./dist",
   },
+  "include": ["./src/**/*"]
 }
