@@ -6,6 +6,7 @@ import {
   stopAndUploadRecording,
 } from "../stop-and-upload-recording.js";
 import { packageLog } from "../package-log.js";
+import { getCurrentStatus } from "../get-current-status.js";
 
 export function useRecording(options: IUseRecordingOptions) {
   const log = packageLog.extend(useRecording.name);
@@ -31,8 +32,10 @@ export function useRecording(options: IUseRecordingOptions) {
     }
   };
 
-  const cleanupRecording = () => {
+  async function cleanupRecording () {
     log("Cleaning up recording");
+    const status = await getCurrentStatus()
+    if(status === 'NONE') return;
     stopAndUploadRecording(options);
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -42,7 +45,9 @@ export function useRecording(options: IUseRecordingOptions) {
   useEffect(() => {
     initiateRecording();
 
-    return cleanupRecording;
+    return () => {
+      cleanupRecording();
+    };
   }, [options]);
 
   return { error };
