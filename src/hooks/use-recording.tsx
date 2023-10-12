@@ -36,7 +36,7 @@ export function useRecording(options: IUseRecordingOptions) {
     log("Cleaning up recording");
     const status = await getCurrentStatus()
     if(status === 'NONE') return;
-    stopAndUploadRecording(options);
+    await stopAndUploadRecording(options)
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
