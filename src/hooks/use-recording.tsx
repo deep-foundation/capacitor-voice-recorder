@@ -8,6 +8,7 @@ import {
 import { packageLog } from "../package-log.js";
 import { getCurrentStatus } from "../get-current-status.js";
 import { useReducer } from 'react';
+import delay from "delay";
 
 export type IUseRecordingOptions = {
   deep: DeepClient;
@@ -15,60 +16,39 @@ export type IUseRecordingOptions = {
 } & IStopAndUploadRecordingOptions;
 
 
-type State = {
-  isRecording: boolean;
-  uploadInterval: number | null;
-}
-
-type Action =
-  | { type: 'START_RECORDING' }
-  | { type: 'STOP_AND_UPLOAD_RECORDING', uploadInterval: number };
-
-function reducer(state: State, action: Action): State {
-  switch (action.type) {
-    case 'START_RECORDING':
-      return { ...state, isRecording: true };
-    case 'STOP_AND_UPLOAD_RECORDING':
-      return { ...state, uploadInterval: action.uploadInterval };
-    default:
-      throw new Error();
-  }
-}
-
 export function useRecording(options: IUseRecordingOptions) {
+  const log = packageLog.extend(useRecording.name)
   const {deep,containerLinkId,savingIntervalInMs} = options
-  const [state, dispatch] = useReducer(reducer, {
-    isRecording: false,
-    uploadInterval: null
-  });
+  const [isRecording, setIsRecording] = useState(false);
+  const [error, setError] = useState<unknown>();
 
   useEffect(() => {
-    async function startAndUploadRecording() {
+    async function manageRecording() {
       try {
+        // Start the recording
         await startRecording();
-        console.log("Recording started");
-        dispatch({ type: 'START_RECORDING' });
+        setIsRecording(true);
+        log("Recording started");
+
+        // Wait for the specified interval
+        await delay(savingIntervalInMs);
+
+        // Stop and upload the recording
+        await stopAndUploadRecording({deep, containerLinkId});
+        setIsRecording(false);
+        log('Recording uploaded');
+
+        // Start a new recording
+        manageRecording();
       } catch (error) {
-        console.error('Error starting recording:', error);
+        log({error});
+        setError(error)
       }
     }
 
-    startAndUploadRecording();
-  }, []);
+    manageRecording();
+  }, [savingIntervalInMs]);
 
-  useEffect(() => {
-    if (state.isRecording) {
-      const intervalId = setInterval(async () => {
-        try {
-          await stopAndUploadRecording({deep, containerLinkId});
-          console.log('Recording uploaded');
-        } catch (error) {
-          console.error('Error uploading recording:', error);
-        }
-      }, savingIntervalInMs);
-
-      return () => clearInterval(intervalId);
-    }
-  }, [state.isRecording, savingIntervalInMs]);
+  return {isRecording, error};
 
 }
