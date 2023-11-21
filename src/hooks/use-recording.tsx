@@ -9,6 +9,8 @@ import { packageLog } from "../package-log.js";
 import { getCurrentStatus } from "../get-current-status.js";
 import { useReducer } from 'react';
 import delay from "delay";
+import { stopRecording } from "../stop-recording.js";
+import { uploadRecords } from "../upload-records.js";
 
 export type IUseRecordingOptions = {
   deep: DeepClient;
@@ -32,14 +34,17 @@ export function useRecording(options: IUseRecordingOptions) {
 
         // Wait for the specified interval
         await delay(savingIntervalInMs);
+        log(`Interval of ${savingIntervalInMs}ms elapsed`)
 
         // Stop and upload the recording
-        await stopAndUploadRecording({deep, containerLinkId});
+        const recordingData = await stopRecording();
+        log('Recording stopped', {recordingData});
         setIsRecording(false);
+        manageRecording();
+        uploadRecords({deep, containerLinkId, records: [recordingData]});
         log('Recording uploaded');
 
         // Start a new recording
-        manageRecording();
       } catch (error) {
         log({error});
         setError(error)
