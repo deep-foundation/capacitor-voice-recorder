@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { DeepClient } from "@deep-foundation/deeplinks/imports/client.js";
 import { startRecording } from "../start-recording.js";
 import {
-  IStopAndUploadRecordingOptions,
+  IStopAndUploadRecordingOptions, stopAndUploadRecording,
 } from "../stop-and-upload-recording.js";
 import { packageLog } from "../package-log.js";
 import { stopRecording } from "../stop-recording.js";
@@ -59,9 +59,7 @@ export function useRecording(options: IUseRecordingOptions) {
     return () => {
       abortController.abort();
       if(isRecording) {
-        stopRecording().then(recordingData => {
-          uploadRecords({deep, containerLinkId, records: [recordingData]});
-        });
+        stopAndUploadRecording({deep,containerLinkId})
       }
     };
   }, [savingIntervalInMs]);
