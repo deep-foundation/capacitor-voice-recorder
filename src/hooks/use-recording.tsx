@@ -18,42 +18,50 @@ export type IUseRecordingOptions = {
 } & IStopAndUploadRecordingOptions;
 
 
-export function useRecording(options: IUseRecordingOptions) {
-  const log = packageLog.extend(useRecording.name)
-  const {deep,containerLinkId,savingIntervalInMs} = options
+export function useRecording(uploadIntervalSeconds) {
   const [isRecording, setIsRecording] = useState(false);
-  const [error, setError] = useState<unknown>();
+  const [error, setError] = useState(null);
 
   useEffect(() => {
+    const abortController = new AbortController();
+
     async function manageRecording() {
       try {
+        if (abortController.signal.aborted) return;
+
         // Start the recording
         await startRecording();
         setIsRecording(true);
-        log("Recording started");
 
-        // Wait for the specified interval
-        await delay(savingIntervalInMs);
-        log(`Interval of ${savingIntervalInMs}ms elapsed`)
+        // wait for specified interval
+        await new Promise((resolve) => {
+          const timeout = setTimeout(resolve, uploadIntervalSeconds * 1000);
+          abortController.signal.addEventListener('abort', () => clearTimeout(timeout));
+        });
+        
+        if (abortController.signal.aborted) return;
 
         // Stop and upload the recording
-        const recordingData = await stopRecording();
-        log('Recording stopped', {recordingData});
+        await stopRecording();
+
         setIsRecording(false);
-        manageRecording();
-        uploadRecords({deep, containerLinkId, records: [recordingData]});
-        log('Recording uploaded');
 
         // Start a new recording
-      } catch (error) {
-        log({error});
-        setError(error)
+        manageRecording();
+      } catch (err) {
+        if (!abortController.signal.aborted) {
+          setError(err);
+        }
       }
     }
 
     manageRecording();
-  }, [savingIntervalInMs]);
 
-  return {isRecording, error};
+    // Cleanup function
+    return () => {
+      abortController.abort();
+    };
+  }, [uploadIntervalSeconds]);
 
+  return { isRecording, error };
 }
