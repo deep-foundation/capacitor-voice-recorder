@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { DeepClient } from "@deep-foundation/deeplinks/imports/client.js";
 import { startRecording } from "../start-recording.js";
 import {
@@ -17,7 +17,7 @@ export type IUseRecordingOptions = {
 export function useRecording(options: IUseRecordingOptions) {
   const log = packageLog.extend(useRecording.name)
   const {deep,containerLinkId,savingIntervalInMs} = options
-  const [isRecording, setIsRecording] = useState(false);
+  const isRecordingRef = useRef(false);
   const [error, setError] = useState<unknown>();
 
   useEffect(() => {
@@ -26,11 +26,12 @@ export function useRecording(options: IUseRecordingOptions) {
       try {
         if (abortController.signal.aborted) return;
         // Start the recording
+        log("Starting recording")
         await startRecording();
-        setIsRecording(true);
-        log("Recording started");
+        isRecordingRef.current=true;
 
         // Wait for the specified interval
+        log(`Waiting for ${savingIntervalInMs}ms`)
         await new Promise((resolve) => {
           const timeout = setTimeout(resolve, savingIntervalInMs);
           abortController.signal.addEventListener('abort', () => clearTimeout(timeout));
@@ -40,12 +41,13 @@ export function useRecording(options: IUseRecordingOptions) {
         if (abortController.signal.aborted) return;
 
         // Stop and upload the recording
+        log("Stopping recording")
         const recordingData = await stopRecording();
-        log('Recording stopped', {recordingData});
-        setIsRecording(false);
+        log({recordingData});
+        isRecordingRef.current = false;
         manageRecording();
+        log("Uploading recording")
         uploadRecords({deep, containerLinkId, records: [recordingData]});
-        log('Recording uploaded');
 
         // Start a new recording
       } catch (error) {
@@ -57,13 +59,16 @@ export function useRecording(options: IUseRecordingOptions) {
     manageRecording();
 
     return () => {
+      log("Unmounting");
+      log("Aborting recording");
       abortController.abort();
-      if(isRecording) {
+      if(isRecordingRef.current) {
+        log("Stopping and uploading recording")
         stopAndUploadRecording({deep,containerLinkId})
       }
     };
   }, [savingIntervalInMs]);
 
-  return {isRecording, error};
+  return {error};
 
 }
