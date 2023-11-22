@@ -52,12 +52,13 @@ export function useRecording(options: IUseRecordingOptions) {
         log({error});
         setError(error)
       }
-      return () => {
-        abortController.abort();
-      };
     }
 
     manageRecording();
+
+    return () => {
+      abortController.abort();
+    };
   }, [savingIntervalInMs]);
 
   return {isRecording, error};
