@@ -58,6 +58,11 @@ export function useRecording(options: IUseRecordingOptions) {
 
     return () => {
       abortController.abort();
+      if(isRecording) {
+        stopRecording().then(recordingData => {
+          uploadRecords({deep, containerLinkId, records: [recordingData]});
+        });
+      }
     };
   }, [savingIntervalInMs]);
 
