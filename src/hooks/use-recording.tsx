@@ -1,14 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { DeepClient } from "@deep-foundation/deeplinks/imports/client.js";
 import { startRecording } from "../start-recording.js";
 import {
   IStopAndUploadRecordingOptions,
-  stopAndUploadRecording,
 } from "../stop-and-upload-recording.js";
 import { packageLog } from "../package-log.js";
-import { getCurrentStatus } from "../get-current-status.js";
-import { useReducer } from 'react';
-import delay from "delay";
 import { stopRecording } from "../stop-recording.js";
 import { uploadRecords } from "../upload-records.js";
 
