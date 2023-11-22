@@ -56,6 +56,9 @@ export function useRecording(options: IUseRecordingOptions) {
         log({error});
         setError(error)
       }
+      return () => {
+        abortController.abort();
+      };
     }
 
     manageRecording();
