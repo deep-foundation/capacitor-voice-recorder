@@ -1,4 +1,5 @@
 import { VoiceRecorder } from 'capacitor-voice-recorder';
+import { emitter } from './emitter.js';
 
 /**
  * Request recording permissions.
@@ -6,5 +7,6 @@ import { VoiceRecorder } from 'capacitor-voice-recorder';
 
 export const requestPermissions = async () => {
   const { value: recorderPermissions } = await VoiceRecorder.requestAudioRecordingPermission();
+  emitter.emit('permissionsChanged', recorderPermissions);
   return recorderPermissions as boolean;
 };
