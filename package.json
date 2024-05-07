@@ -12,11 +12,11 @@
   "type": "module",
   "scripts": {
     "library:build:clean": "fse remove dist && npm run library:build:dirty",
-    "library:build:dirty": "npx tsx ./automation/library/build.ts",
+    "library:build:dirty": "npx tsx ./automation/library/build.js",
     "npm-pull": "npm-pull",
     "npm-release": "npm-release",
     "library:build:generate-package-class": "generate-package-class",
-    "documentation:generate": "npx tsx ./automation/documentation/generate.ts",
+    "documentation:generate": "npx tsx ./automation/documentation/generate.js",
     "library:documentation:generate": "typedoc ./src/main.ts",
     "test": "jest"
   },
@@ -28,7 +28,6 @@
   ],
   "dependencies": {
     "@deep-foundation/core": "~0.0.2",
-    "@deep-foundation/device": "~1.0.1",
     "@deep-foundation/sound": "~0.0.3",
     "@deep-foundation/tsx": "~0.0.3",
     "delay": "^6.0.0",

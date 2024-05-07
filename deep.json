@@ -179,10 +179,6 @@
     {
       "name": "@deep-foundation/sound",
       "version": "0.0.3"
-    },
-    {
-      "name": "@deep-foundation/device",
-      "version": "1.0.1"
     }
   ]
 }
