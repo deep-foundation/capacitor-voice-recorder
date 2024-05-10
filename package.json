@@ -4,7 +4,7 @@
     "deep-package",
     "deep-package-integration"
   ],
-  "version": "1.2.7-dev.26",
+  "version": "1.2.7-dev.27",
   "repository": {
     "type": "git",
     "url": "https://github.com/deep-foundation/capacitor-voice-recorder"
@@ -29,36 +29,36 @@
   "dependencies": {
     "@deep-foundation/core": "~0.0.2",
     "@deep-foundation/sound": "~0.0.3",
-    "@deep-foundation/tsx": "^0.0.5",
-    "delay": "^6.0.0",
-    "mitt": "^3.0.1"
+    "@deep-foundation/tsx": "~0.0.5",
+    "delay": "~6.0.0",
+    "mitt": "~3.0.1"
   },
   "peerDependencies": {
-    "@capacitor/app": "^5.0.6",
-    "@chakra-ui/react": "^2.5.5",
+    "@capacitor/app": "~5.0.6",
+    "@chakra-ui/react": "~2.5.5",
     "@deep-foundation/deeplinks": "~0.0.313",
     "capacitor-voice-recorder": "5.0.0",
-    "react": "^18.2.0"
+    "react": "~18.2.0"
   },
   "devDependencies": {
-    "@atao60/fse-cli": "^0.1.7",
-    "@capacitor/cli": "^5.0.0",
-    "@deep-foundation/npm-automation": "^18.1.11",
-    "@testing-library/react": "^14.0.0",
-    "@tsconfig/create-react-app": "^2.0.1",
-    "@tsconfig/node18": "^18.2.2",
-    "@tsconfig/recommended": "^1.0.3",
-    "@types/debug": "^4.1.9",
-    "@types/fs-extra": "^11.0.1",
-    "@types/jest": "^29.5.5",
-    "@types/node": "^20.2.4",
-    "babel-jest": "^29.7.0",
-    "fs-extra": "^11.1.1",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
-    "ts-jest": "^29.1.1",
+    "@atao60/fse-cli": "~0.1.7",
+    "@capacitor/cli": "~5.0.0",
+    "@deep-foundation/npm-automation": "~18.1.11",
+    "@testing-library/react": "~14.0.0",
+    "@tsconfig/create-react-app": "~2.0.1",
+    "@tsconfig/node18": "~18.2.2",
+    "@tsconfig/recommended": "~1.0.3",
+    "@types/debug": "~4.1.9",
+    "@types/fs-extra": "~11.0.1",
+    "@types/jest": "~29.5.5",
+    "@types/node": "~20.2.4",
+    "babel-jest": "~29.7.0",
+    "fs-extra": "~11.1.1",
+    "jest": "~29.7.0",
+    "jest-environment-jsdom": "~29.7.0",
+    "ts-jest": "~29.1.1",
     "ts-node": "github:TypeStrong/ts-node#main",
-    "tsx": "^4.7.0",
-    "typescript": "^5.2.2"
+    "tsx": "~4.7.0",
+    "typescript": "~5.2.2"
   }
 }
