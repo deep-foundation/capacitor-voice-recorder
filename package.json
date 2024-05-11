@@ -4,7 +4,7 @@
     "deep-package",
     "deep-package-integration"
   ],
-  "version": "1.2.7-dev.27",
+  "version": "1.2.7-dev.28",
   "repository": {
     "type": "git",
     "url": "https://github.com/deep-foundation/capacitor-voice-recorder"
@@ -35,10 +35,10 @@
   },
   "peerDependencies": {
     "@capacitor/app": "~5.0.6",
-    "@chakra-ui/react": "~2.5.5",
+    "@chakra-ui/react": "*",
     "@deep-foundation/deeplinks": "~0.0.313",
     "capacitor-voice-recorder": "5.0.0",
-    "react": "~18.2.0"
+    "react": "*"
   },
   "devDependencies": {
     "@atao60/fse-cli": "~0.1.7",
